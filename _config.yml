@@ -5,7 +5,7 @@
 url: http://xuchunwei.github.com
 title: 深海后花园
 subtitle: 有山 有水 有花 有草 有你 还有我
-author: xuchunwei
+author: 徐春伟
 simple_search: https://www.google.com/search
 description: 
 
@@ -69,7 +69,8 @@ github_repo_count: 0
 github_show_profile_link: true
 github_skip_forks: true
 
-
+# share
+weibo_share: true
 
 # Pinboard
 pinboard_user:
