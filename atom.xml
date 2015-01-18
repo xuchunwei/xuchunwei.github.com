@@ -4,7 +4,7 @@
   <title><![CDATA[深海后花园]]></title>
   <link href="http://xuchunwei.github.io/atom.xml" rel="self"/>
   <link href="http://xuchunwei.github.io/"/>
-  <updated>2015-01-10T22:47:01+08:00</updated>
+  <updated>2015-01-18T18:21:15+08:00</updated>
   <id>http://xuchunwei.github.io/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -12,5 +12,72 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Linux随笔]]></title>
+    <link href="http://xuchunwei.github.io/20150118/linux/"/>
+    <updated>2015-01-18T15:09:43+08:00</updated>
+    <id>http://xuchunwei.github.io/20150118/linux</id>
+    <content type="html"><![CDATA[<p>linux是服务器端操作系统不二之选，是从事程序开发必备技能之一。本文记录linux的基础命令(debian版本)。</p>
+
+<!--more-->
+
+
+<h2>vi</h2>
+
+<p>按<code>h``j``k``l</code>光标移动为 左，下，上，右
+<code>ctrl+f</code> 向前移动一页
+<code>ctrl+b</code> 向后移动一页
+<code>ctrl+d</code> 向前移动半页
+<code>ctrl+u</code> 向后移动半页
+<code>+</code> 向下移动一行
+<code>-</code> 向上移动一行</p>
+
+<p><code>/word</code> 光标后查找word字符串
+<code>?word</code> 光标前查找word字符串</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>x # 向后删除一个字符(`10x` 向后删除10个字符)
+</span><span class='line'>X # 向前删除一个字符
+</span><span class='line'>dd # 删除光标所在行(`10dd` 删除光标所在向下10行, `d10G` 删除光标所在到第10行, `dG` 删除光标及以下所有行)
+</span><span class='line'>yy # 复制光标所在行(`10yy` 复制光标所在向下10行, `y10G` 复制光标所在到第10行, `yG` 复制光标及以下所有行)
+</span><span class='line'>p # 粘贴在光标下一行
+</span><span class='line'>P # 粘贴在光标上一行
+</span><span class='line'>J # 光标所在行与下一行合并
+</span><span class='line'>u # 复原前一个动作</span></code></pre></td></tr></table></div></figure>
+
+
+<p>按<code>i``I``o``O``a``A``r``R</code>进入编辑模式
+按<code>ESC</code>退出编辑模式
+<code>:``/</code>进入命令行模式</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>:w fileName # 保存为fileName(3,7 w file 将3到7行的内容存为file)
+</span><span class='line'>:r fileName # 将fileName加到光标所在行后面
+</span><span class='line'>:wq # 存盘并退出(wx 亦可)
+</span><span class='line'>:w! # 若为只读属性，则强制写入
+</span><span class='line'>:e! # 还原至原始状态
+</span><span class='line'>:q! # 不存盘退出
+</span><span class='line'>:set nu # 显示行号
+</span><span class='line'>:set nonu # 取消行号</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
   
 </feed>
