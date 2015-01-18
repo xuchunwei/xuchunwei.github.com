@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Technology | 深海后花园]]></title>
-  <link href="http://xuchunwei.github.io/blog/categories/technology/atom.xml" rel="self"/>
-  <link href="http://xuchunwei.github.io/"/>
-  <updated>2015-01-18T18:55:34+08:00</updated>
-  <id>http://xuchunwei.github.io/</id>
+  <link href="http://www.xuchunwei.com/blog/categories/technology/atom.xml" rel="self"/>
+  <link href="http://www.xuchunwei.com/"/>
+  <updated>2015-01-18T19:17:29+08:00</updated>
+  <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Linux随笔]]></title>
-    <link href="http://xuchunwei.github.io/blog/20100118/linux/"/>
+    <link href="http://www.xuchunwei.com/blog/20100118/linux/"/>
     <updated>2010-01-18T15:09:43+08:00</updated>
-    <id>http://xuchunwei.github.io/blog/20100118/linux</id>
+    <id>http://www.xuchunwei.com/blog/20100118/linux</id>
     <content type="html"><![CDATA[<p>linux是服务器端操作系统不二之选，是从事程序开发必备技能之一。本文记录linux的基础命令(debian版本)。</p>
 
 <!--more-->
@@ -48,7 +48,7 @@ u # 复原前一个动作
 
 <p>按<code>i</code> <code>I</code> <code>o</code> <code>O</code> <code>a</code> <code>A</code> <code>r</code> <code>R</code>进入编辑模式<br/>
 按<code>ESC</code>退出编辑模式<br/>
-<code>:</code> <code>/</code>进入命令行模式</p>
+按<code>:</code> <code>/</code>进入命令行模式</p>
 
 <pre><code>:w fileName # 保存为fileName(3,7 w file 将3到7行的内容存为file)
 :r fileName # 将fileName加到光标所在行后面
