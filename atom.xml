@@ -4,7 +4,7 @@
   <title><![CDATA[深海后花园]]></title>
   <link href="http://xuchunwei.github.io/atom.xml" rel="self"/>
   <link href="http://xuchunwei.github.io/"/>
-  <updated>2015-01-18T18:21:15+08:00</updated>
+  <updated>2015-01-18T18:40:21+08:00</updated>
   <id>http://xuchunwei.github.io/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Linux随笔]]></title>
-    <link href="http://xuchunwei.github.io/20150118/linux/"/>
-    <updated>2015-01-18T15:09:43+08:00</updated>
-    <id>http://xuchunwei.github.io/20150118/linux</id>
+    <link href="http://xuchunwei.github.io/20100118/linux/"/>
+    <updated>2010-01-18T15:09:43+08:00</updated>
+    <id>http://xuchunwei.github.io/20100118/linux</id>
     <content type="html"><![CDATA[<p>linux是服务器端操作系统不二之选，是从事程序开发必备技能之一。本文记录linux的基础命令(debian版本)。</p>
 
 <!--more-->
@@ -25,16 +25,23 @@
 
 <h2>vi</h2>
 
-<p>按<code>h``j``k``l</code>光标移动为 左，下，上，右
-<code>ctrl+f</code> 向前移动一页
-<code>ctrl+b</code> 向后移动一页
-<code>ctrl+d</code> 向前移动半页
-<code>ctrl+u</code> 向后移动半页
-<code>+</code> 向下移动一行
-<code>-</code> 向上移动一行</p>
+<p>按<code>h</code> <code>j</code> <code>k</code> <code>l</code>光标移动为 左，下，上，右</p>
 
-<p><code>/word</code> 光标后查找word字符串
-<code>?word</code> 光标前查找word字符串</p>
+<p><code>ctrl+f</code> 向前移动一页</p>
+
+<p><code>ctrl+b</code> 向后移动一页</p>
+
+<p><code>ctrl+d</code> 向前移动半页</p>
+
+<p><code>ctrl+u</code> 向后移动半页</p>
+
+<p><code>+</code> 向下移动一行</p>
+
+<p><code>-</code> 向上移动一行</p>
+
+<p><code>/word</code> 光标后查找word字符串</p>
+
+<p><code>?word</code> 光标前查找word字符串</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -54,9 +61,11 @@
 </span><span class='line'>u # 复原前一个动作</span></code></pre></td></tr></table></div></figure>
 
 
-<p>按<code>i``I``o``O``a``A``r``R</code>进入编辑模式
-按<code>ESC</code>退出编辑模式
-<code>:``/</code>进入命令行模式</p>
+<p>按<code>i</code> <code>I</code> <code>o</code> <code>O</code> <code>a</code> <code>A</code> <code>r</code> <code>R</code>进入编辑模式</p>
+
+<p>按<code>ESC</code>退出编辑模式</p>
+
+<p><code>:</code> <code>/</code>进入命令行模式</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
