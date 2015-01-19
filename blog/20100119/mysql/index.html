@@ -100,63 +100,126 @@ var _hmt = _hmt || [];
 
 <h2>常用命令</h2>
 
-<p>*mysql服务的启动和停止
-    net stop mysql
-    net start mysql</p>
+<p>mysql服务的启动和停止</p>
 
-<p>*登陆mysql
-语法如下： mysql -u用户名 -p用户密码
-注意，如果是连接到另外的机器上，则需要加入一个参数-h机器IP</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>net stop mysql
+</span><span class='line'>net start mysql</span></code></pre></td></tr></table></div></figure>
 
-<p><em>增加新用户
-格式：grant 权限 on 数据库.</em> to 用户名@登录主机 identified by “密码”
-如，增加一个用户user1密码为password1，让其可以在本机上登录， 并对所有数据库有查询、插入、修改、删除的权限。首先用以root用户连入mysql，然后键入以下命令：
-grant select,insert,update,delete on <em>.</em> to user1@localhost Identified by “password1″;
-如果希望该用户能够在任何机器上登陆mysql，则将localhost改为”%”。
-如果你不想user1有密码，可以再打一个命令将密码去掉。
-grant select,insert,update,delete on mydb.* to user1@localhost identified by “”;</p>
+
+<p>登陆mysql</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mysql -u user -p password  # 如果是连接到另外的机器上，则需要加入一个参数-h机器IP</span></code></pre></td></tr></table></div></figure>
+
+
+<p>增加新用户</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>grant 权限 on 数据库.* to 用户名@登录主机 identified by “密码”  # 增加一个用户user1密码为password1，让其可以在本机上登录， 并对所有数据库有查询、插入、修改、删除的权限。首先用以root用户连入mysql，然后键入以下命令：
+</span><span class='line'>grant select,insert,update,delete on *.* to user1@localhost Identified by “password1″;
+</span><span class='line'>如果希望该用户能够在任何机器上登陆mysql，则将localhost改为”%”。
+</span><span class='line'>如果你不想user1有密码，可以再打一个命令将密码去掉。
+</span><span class='line'>grant select,insert,update,delete on mydb.* to user1@localhost identified by “”;</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>操作数据库</h3>
 
 <ul>
-<li>操作数据库</li>
+<li>显示数据库列表</li>
 </ul>
 
 
-<p>1、 显示数据库列表。
-show databases;</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>show databases;</span></code></pre></td></tr></table></div></figure>
 
-<p>2、 显示库中的数据表：
-use mysql;
-show tables;
-3、 显示数据表的结构：
-describe 表名;
-4、 建库与删库：
-create database 库名;
-drop database 库名;
-5、 建表：
-use 库名;
-create table 表名(字段列表);
-drop table 表名;
-6、 清空表中记录：
-delete from 表名;
-7、 显示表中的记录：
-select * from 表名;</p>
 
-<p>*导出和导入数据
-1. 导出数据：
+<ul>
+<li>显示库中的数据表</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>use mysql;
+</span><span class='line'>show tables;</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>显示数据表的结构</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>describe tableName;</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>建库与删库</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>create database databaseName;
+</span><span class='line'>drop database databaseName;</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>建表</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>use databaseName;
+</span><span class='line'>create table tableName(字段列表);
+</span><span class='line'>drop table tableName;</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>清空表中记录</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>delete from tableName;</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>导出和导入数据</h3>
+
+<ol>
+<li>导出数据<br/>
 mysqldump –opt test > mysql.test
 即将数据库test数据库导出到mysql.test文件，后者是一个文本文件
 如：mysqldump -u root -p123456 –databases dbname > mysql.dbname
-就是把数据库dbname导出到文件mysql.dbname中。
-2. 导入数据:
-use mysql;
-source /var/mysql.sql;</p>
+就是把数据库dbname导出到文件mysql.dbname中。</li>
+<li>导入数据</li>
+</ol>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>use mysql;
+</span><span class='line'>source /var/mysql.sql;</span></code></pre></td></tr></table></div></figure>
+
 
 <ol>
-<li>将文本数据导入数据库:
-文本数据的字段数据之间用tab键隔开。
-use test;
-load data local infile “文件名” into table 表名;</li>
+<li>将文本数据导入数据库<br/>
+文本数据的字段数据之间用tab键隔开。</li>
 </ol>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>use test;
+</span><span class='line'>load data local infile “文件名” into table 表名;</span></code></pre></td></tr></table></div></figure>
 
 </div>
 
