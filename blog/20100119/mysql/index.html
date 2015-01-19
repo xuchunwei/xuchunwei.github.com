@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>About - 深海后花园</title>
+  <title>Mysql随笔 - 深海后花园</title>
   <meta name="author" content="徐春伟">
 
   
-  <meta name="description" content="About Jan 10th, 2009 10:45 pm Jan 10th, 2009 10:45 pm 分享到： 新浪微博 微信 豆瓣 人人网 About Me 纯码农半屌丝零文艺 生于河南漂在帝都 用灵巧之手成神奇之码 不求闻达于诸侯但求吃穿住不愁 Recent Posts Mysql随笔 &hellip;">
-  
+  <meta name="description" content="mysql命令">
+  <meta name="keywords" content="mysql">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.xuchunwei.com/about">
+  <link rel="canonical" href="http://www.xuchunwei.com/blog/20100119/mysql">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="深海后花园" type="application/atom+xml">
@@ -73,34 +73,119 @@ var _hmt = _hmt || [];
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">About</h1>
-    <p class="meta">
-
-
-
-
-<time class='entry-date' datetime='2009-01-10T22:45:00+08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2009</span></span> <span class='time'>10:45 pm</span></time></p>
-  </header>
-  
-  
-
-  
-    <footer>
+    
+      <h1 class="entry-title">Mysql随笔</h1>
+    
+    
       <p class="meta">
         
-        
 
 
 
 
-<time class='entry-date' datetime='2009-01-10T22:45:00+08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2009</span></span> <span class='time'>10:45 pm</span></time>
+<time class='entry-date' datetime='2010-01-19T21:43:59+08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2010</span></span> <span class='time'>9:43 pm</span></time>
         
       </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>mysql是web开发使用最广泛的数据库之一，最让我欣赏的是它是免费的</p>
+
+<!--more-->
+
+
+<h2>常用命令</h2>
+
+<p>*mysql服务的启动和停止
+    net stop mysql
+    net start mysql</p>
+
+<p>*登陆mysql
+语法如下： mysql -u用户名 -p用户密码
+注意，如果是连接到另外的机器上，则需要加入一个参数-h机器IP</p>
+
+<p><em>增加新用户
+格式：grant 权限 on 数据库.</em> to 用户名@登录主机 identified by “密码”
+如，增加一个用户user1密码为password1，让其可以在本机上登录， 并对所有数据库有查询、插入、修改、删除的权限。首先用以root用户连入mysql，然后键入以下命令：
+grant select,insert,update,delete on <em>.</em> to user1@localhost Identified by “password1″;
+如果希望该用户能够在任何机器上登陆mysql，则将localhost改为”%”。
+如果你不想user1有密码，可以再打一个命令将密码去掉。
+grant select,insert,update,delete on mydb.* to user1@localhost identified by “”;</p>
+
+<ul>
+<li>操作数据库</li>
+</ul>
+
+
+<p>1、 显示数据库列表。
+show databases;</p>
+
+<p>2、 显示库中的数据表：
+use mysql;
+show tables;
+3、 显示数据表的结构：
+describe 表名;
+4、 建库与删库：
+create database 库名;
+drop database 库名;
+5、 建表：
+use 库名;
+create table 表名(字段列表);
+drop table 表名;
+6、 清空表中记录：
+delete from 表名;
+7、 显示表中的记录：
+select * from 表名;</p>
+
+<p>*导出和导入数据
+1. 导出数据：
+mysqldump –opt test > mysql.test
+即将数据库test数据库导出到mysql.test文件，后者是一个文本文件
+如：mysqldump -u root -p123456 –databases dbname > mysql.dbname
+就是把数据库dbname导出到文件mysql.dbname中。
+2. 导入数据:
+use mysql;
+source /var/mysql.sql;</p>
+
+<ol>
+<li>将文本数据导入数据库:
+文本数据的字段数据之间用tab键隔开。
+use test;
+load data local infile “文件名” into table 表名;</li>
+</ol>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
       
-        <div class="sharing">
+  
+
+<span class="byline author vcard">Posted by <span class="fn">徐春伟</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2010-01-19T21:43:59+08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2010</span></span> <span class='time'>9:43 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/technology/'>technology</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
   
   
   
@@ -130,9 +215,14 @@ var jiathis_config = {data_track_clickback:'true'};
   
 </div>
 
+    
+    <p class="meta">
       
-    </footer>
-  
+        <a class="basic-alignment left" href="/blog/20100118/linux/" title="Previous Post: linux随笔">&laquo; linux随笔</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>

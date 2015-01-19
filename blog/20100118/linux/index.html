@@ -153,86 +153,86 @@ var _hmt = _hmt || [];
 
 <h2>shell</h2>
 
-<p>rm[remove] 删除文件或目录
+<p>rm[remove] 删除文件或目录<br/>
 rm -f filename -f 强制删除文件。-rf 删除目录不提示确认</p>
 
-<p>cp[copy] 复制文件/文件夹
+<p>cp[copy] 复制文件/文件夹<br/>
 cp -i 源文件 目标文件 -i 当目标文件存在时提示。-r 复制文件夹</p>
 
-<p>cd[change directory] 切换目录
+<p>cd[change directory] 切换目录<br/>
 cd .. 返回上一层。cd 返回用户目录。</p>
 
-<p>cat 显示文件内容
+<p>cat 显示文件内容<br/>
 cat > filename 创建一个文件。cat file1 file2 > file 合并文件</p>
 
-<p>more 显示文件内容
+<p>more 显示文件内容<br/>
 和cat类似，分屏显示</p>
 
-<p>ls[ list ] 列出目录内容
+<p>ls[ list ] 列出目录内容<br/>
 ls -a 显示所有文件包含以.开头的隐含文件。ls -l 列出文件的详细信息</p>
 
-<p>mv[move] 移动或更名现有目录或文件
+<p>mv[move] 移动或更名现有目录或文件<br/>
 mv -i 源文件 目标文件 -i 当目标文件存在时提示 -f 禁止交互操作,不提示,-i失去作用。mv * ../ 移动当前所有文件到上一级。</p>
 
-<p>mkdir[make directories] 建立目录
+<p>mkdir[make directories] 建立目录<br/>
 mkdir 777 dirname 建立777权限的目录</p>
 
-<p>chmod[change mode] 更改文件或目录的权限
+<p>chmod[change mode] 更改文件或目录的权限<br/>
 chmod a=rwx file 更改file为所有权限。chmod abc file a代表user,b代表group,c代表other 的权限,r=4,w=2,x=1 chmod -R 777 file 文件夹及子文件夹一并处理</p>
 
-<p>chown[change owner] 变更文件或目录的拥有者或所属群组
+<p>chown[change owner] 变更文件或目录的拥有者或所属群组<br/>
 chown oracle:net /home/u1 表示改变目录所有者为oracle账户和组net -R 递归处理，将指定目录下的所有文件及子目录一并处理</p>
 
-<p>chgrp[change group] 变更文件或目录的所属群组
+<p>chgrp[change group] 变更文件或目录的所属群组<br/>
 chgrp dba /home/u1 改变/home/u1目录为dba所有 -R 递归处理，将指定目录下的所有文件及子目录一并处理</p>
 
-<p>tar[tape archive] 备份文件
+<p>tar[tape archive] 备份文件<br/>
 tar -cvf xx.tar xx.txt/xx 备份xx.txt文件或xx目录。tar -xvf xx.tar /var/www/ 解备份xx.tar文件至/var/www/。tar -rf xx.tar xx.txt 增加备份xx.txt文件。tar -tf xx.tar 查看xx.tar里文件。tar -tf 1.tar | grep 1.txt 查打1.tar中的1.txt文件 去掉txt则查找1文件。tar –exclude a -cf xx.tar * 备份当前目录所有的文件除了a文件夹</p>
 
-<p>du[disk usage] 显示目录或文件的大小
+<p>du[disk usage] 显示目录或文件的大小<br/>
 du -sh /var 显示var的大小</p>
 
 <p>pwd[print working directory] 显示工作目录</p>
 
 <p>id 显示用户的ID，以及所属群组的ID</p>
 
-<p>mount 加载文件系统
+<p>mount 加载文件系统<br/>
 -r 以只读的模式载入设备 -w 以可读写模式载入设备 mount /dev/hda5/ /mnt 把hda5加载到/mnt</p>
 
-<p>man 查看命令帮助信息
+<p>man 查看命令帮助信息<br/>
 按q退出</p>
 
-<p>unzip 解压缩zip文件
+<p>unzip 解压缩zip文件<br/>
 unzip xx.zip 解压xx.zip文件。unzip -d /www xx.zip 解压xx.zip文件到www。unzip -l xx.zip 查看xx.zip包含哪些文件。-o 不询问用户覆盖原有文件。-f 更新现有文件。</p>
 
-<p>find 查找文件或目录
-find / -name xx.txt 按名字查找xx.txt。
-find / -size 1500c 查大小为1500字节的文件
-find / -size +1000c 查找大于10000btyes的文件，用减号表示小于10000字节
-find / -mmin -5 查找最后5分钟修改过的文件
-find / -mtime -1 查找最后一天修改过的文件
-find / -amin -10 查找在系统中最后10分钟访问的文件
-find / -atime -2 查找最后2天访问的文件
-find / -empty 查找为空的文件或文件夹
-find / -group cat 查找属于组cat的文件
-find / -nouser 查找属于作废用户的文件
-find / -user fred 查找fred用户的文件
-find / -cmin n 查找是n分钟改变状态的文件
+<p>find 查找文件或目录<br/>
+find / -name xx.txt 按名字查找xx.txt。<br/>
+find / -size 1500c 查大小为1500字节的文件<br/>
+find / -size +1000c 查找大于10000btyes的文件，用减号表示小于10000字节<br/>
+find / -mmin -5 查找最后5分钟修改过的文件<br/>
+find / -mtime -1 查找最后一天修改过的文件<br/>
+find / -amin -10 查找在系统中最后10分钟访问的文件<br/>
+find / -atime -2 查找最后2天访问的文件<br/>
+find / -empty 查找为空的文件或文件夹<br/>
+find / -group cat 查找属于组cat的文件<br/>
+find / -nouser 查找属于作废用户的文件<br/>
+find / -user fred 查找fred用户的文件<br/>
+find / -cmin n 查找是n分钟改变状态的文件<br/>
 find / -false 查找总是错误的文件</p>
 
-<p>wc[word count] 计算字数
+<p>wc[word count] 计算字数<br/>
 -c 只显示bytes数。-l 只显示列数。-w 只显示字数。</p>
 
-<p>useradd 新增用户帐号
+<p>useradd 新增用户帐号<br/>
 -u 直接给出用户id。-g 给出用户组。-d 将根目录建立在已存在目录上。-s 定义shell 。useradd -d /home/weixiaohong -g www-data -s /bin/sh username</p>
 
-<p>passwd 设置密码
+<p>passwd 设置密码<br/>
 新增用户后，要设置密码，否则不能用。-d 使用户无密码</p>
 
-<p>usermod 修改用户
+<p>usermod 修改用户<br/>
 usermod -l newuser olduser 修改用户名olduser为newuser</p>
 
-<p>userdel 删除用户
+<p>userdel 删除用户<br/>
 userdel user 删除用户user，-r 属于user的文件也删除(最好不用)。-f 删除用户登入目录以及目录中所有文件</p>
 
 <p>who 显示目前登入系统的用户信息</p>
@@ -241,12 +241,12 @@ userdel user 删除用户user，-r 属于user的文件也删除(最好不用)。
 
 <p>groupadd 增加用户组</p>
 
-<p>groupmod 修改用户组
+<p>groupmod 修改用户组<br/>
 -n newgroup oldgroup</p>
 
 <p>groupdel 删除用户组</p>
 
-<p>newgrp 登入另一个群组
+<p>newgrp 登入另一个群组<br/>
 如果当前用户属于多个群组，可以切换到另个群组。</p>
 
 <p>cat /etc/passwd 查用户信息</p>
@@ -261,70 +261,95 @@ userdel user 删除用户user，-r 属于user的文件也删除(最好不用)。
 
 <p>ifconfig 显示或设置网络设备</p>
 
-<p>free 显示内存状态
+<p>free 显示内存状态<br/>
 -s 3 持续观察，间隔3秒。</p>
 
-<p>df[disk free] 显示磁盘的相关信息
+<p>df[disk free] 显示磁盘的相关信息<br/>
 -h 以可读性较高的方式来显示硬盘剩余信息。-i 显示inode(索引)信息。-</p>
 
 <p>startx[start X Window] 启动X Window</p>
 
 <p>sync 将内存缓冲区内的数据写入磁盘</p>
 
-<p>shutdown 系统关机指令
+<p>shutdown 系统关机指令<br/>
 shutdown -h new 将系统关机。-k 只是送出信息给所有用户，但不会实际关机。-r shutdown之后重新启动。shutdown -r +10 十分钟后重启。shutdown -h 10:00 十点钟重启</p>
 
 <p>reboot 重启</p>
 
-<p>新建文件
-vi xx.txt
-echo “xxx” > xx.txt
-cat > xx.txt
-touch xx.txt</p>
+<p>新建文件</p>
 
-<p>ctrl+c 中止当前命令的执行
-退出系统
-ctrl+d
-logout
-exit
-设置vi语法高亮显示
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi xx.txt
+</span><span class='line'>echo “xxx” &gt; xx.txt
+</span><span class='line'>cat &gt; xx.txt
+</span><span class='line'>touch xx.txt</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>ctrl+c</code> 中止当前命令的执行<br/>
+退出系统</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ctrl+d
+</span><span class='line'>logout
+</span><span class='line'>exit</span></code></pre></td></tr></table></div></figure>
+
+
+<p>设置vi语法高亮显示<br/>
 修改 /etc/vim/vimrc ，使其syntax on前面的注释符去掉</p>
 
-<p>history 保存了最近执行过的500条命令
-!n 执行编号为n的命令
-!-n 执行倒数第n个命令
-!! 执行上一个历史命令（在历史记录中不加入）
-!xx 执行以’xx’开头的历史命令
-!?xx? 执行包含’xx’的历史命令</p>
+<p>history 保存了最近执行过的500条命令</p>
 
-<p>当输入到足够多的字符时，按tab会自动补全
-三种通配符
-？表示任意的单个字符
-* 表示任意长的任意字符串
-[] 表示匹配放在[]中的字符集中的单个字符</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>!n 执行编号为n的命令
+</span><span class='line'>!-n 执行倒数第n个命令
+</span><span class='line'>!! 执行上一个历史命令（在历史记录中不加入）
+</span><span class='line'>!xx 执行以’xx’开头的历史命令
+</span><span class='line'>!?xx? 执行包含’xx’的历史命令</span></code></pre></td></tr></table></div></figure>
+
+
+<p>当输入到足够多的字符时，按tab会自动补全<br/>
+三种通配符</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>？表示任意的单个字符
+</span><span class='line'>* 表示任意长的任意字符串
+</span><span class='line'>[] 表示匹配放在[]中的字符集中的单个字符</span></code></pre></td></tr></table></div></figure>
+
 
 <p>shell使用的三种引号:
-双引号” 在双引号除 $,”,’和\以外的特殊字符的特殊意义都解释成字符本身。
-单引号’ 纯字符，所有特殊字符都将失去意义
-反引号` 反引号中的字符被解释成命令</p>
+<em>双引号” 在双引号除 $,”,’和\以外的特殊字符的特殊意义都解释成字符本身。
+</em>单引号’ 纯字符，所有特殊字符都将失去意义
+*反引号` 反引号中的字符被解释成命令</p>
 
-<p>输入重定向
+<p>输入重定向<br/>
 格式：命令 &lt; 数据文件 输出重定向 格式：命令 > 数据文件</p>
 
-<p>例：cat file1 file2 > file.txt
+<p>例：cat file1 file2 > file.txt<br/>
 在文件名和’>’之间要放一个空格，数据文件不论原先是否存在，都是将命令的输出覆盖上去。</p>
 
-<p>命令 >> 数据文件
+<p>命令 >> 数据文件<br/>
 是输出追加符，若数据文件已存在，则添加到文件尾部，否则建立新的。</p>
 
-<p>管道操作符 ‘|’ 是把一条命令的标准输出和另一条命令的标准输入相连的操作
-同一命令行用&#8217;;’隔开，分号前后命令无因果关系
-&amp;&amp; 连接两个命令，前一个成功后一个执行
+<p>管道操作符 ‘|’ 是把一条命令的标准输出和另一条命令的标准输入相连的操作<br/>
+同一命令行用&#8217;;’隔开，分号前后命令无因果关系<br/>
+&amp;&amp; 连接两个命令，前一个成功后一个执行<br/>
 || 连接两个命令，前一个不成功后一个执行</p>
 
-<p>linux 文本启动方式
-修改 /etc/inittab 文件中的 id:5:initdefault 中的5改成3
-0：关机
+<p>linux 文本启动方式<br/>
+修改 /etc/inittab 文件中的 id:5:initdefault 中的5改成3</p>
+
+<blockquote><p>0：关机
 1：单用户模式
 2：多用户(不支持网络登录)
 3：多用户
@@ -332,33 +357,57 @@ exit
 5：x-window
 6：重启
 至此系统重启后就进入命令行状态，但是对debian系统来说，还是不行的，还需
-进入 /etc/rc3.d。然后把s30gdm 改成k70gdm。</p>
+进入 /etc/rc3.d。然后把s30gdm 改成k70gdm。</p></blockquote>
 
-<p>apt-get upgrade 把本机所有软件升级到最新版
-apt-get clean 清除 /var/cache/apt/archives/ 下的缓存文件
-apt-get autoclean 清除 archives 下没用的或不完整的软件包</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>apt-get upgrade 把本机所有软件升级到最新版
+</span><span class='line'>apt-get clean 清除 /var/cache/apt/archives/ 下的缓存文件
+</span><span class='line'>apt-get autoclean 清除 archives 下没用的或不完整的软件包</span></code></pre></td></tr></table></div></figure>
 
-<p>apt-get remove xx 卸载xx软件
-安装mysql5
-sudo apt-get install mysql-server
-安装apache2
-sudo apt-get install apache2
-安装php5
-sudo apt-get install php5
-安装php的mysql模块
-sudo apt-get install php5-mysql
-安装GD库
-sudo apt-get install php5-gd
-安装phpmyadmin
-sudo apt-get install phpmyadmin
-安装vsftpd
-sudo apt-get install vsftpd
-安装ssh
-sudo apt-get install ssh
-安装zip
-sudo apt-get install unzip</p>
 
-<p>mysql的配置文件my.cnf /etc/mysql/my.cnf
+<p><code>apt-get remove xx</code> 卸载xx软件</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>安装mysql5
+</span><span class='line'>sudo apt-get install mysql-server
+</span><span class='line'>安装apache2
+</span><span class='line'>sudo apt-get install apache2
+</span><span class='line'>安装php5
+</span><span class='line'>sudo apt-get install php5
+</span><span class='line'>安装php的mysql模块
+</span><span class='line'>sudo apt-get install php5-mysql
+</span><span class='line'>安装GD库
+</span><span class='line'>sudo apt-get install php5-gd
+</span><span class='line'>安装phpmyadmin
+</span><span class='line'>sudo apt-get install phpmyadmin
+</span><span class='line'>安装vsftpd
+</span><span class='line'>sudo apt-get install vsftpd
+</span><span class='line'>安装ssh
+</span><span class='line'>sudo apt-get install ssh
+</span><span class='line'>安装zip
+</span><span class='line'>sudo apt-get install unzip</span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>mysql的配置文件my.cnf /etc/mysql/my.cnf
 apache2的配置文件apache2.conf /etc/apache2/apache2.conf
 php的配置文件php.ini /etc/php5/apache2/php.ini
 vsftpd的配置文件vsftpd.conf /etc/vsftpd.conf</p>
@@ -367,7 +416,7 @@ vsftpd的配置文件vsftpd.conf /etc/vsftpd.conf</p>
 mysql的启动和停止命令 /etc/init.d/mysql start|restart|stop
 vsftpd的配置文件 /etc/init.d/vsftpd start|restart|stop</p>
 
-<p>mysql数据库文件存在/var/lib/mysql</p>
+<p>mysql数据库文件存在/var/lib/mysql</p></blockquote>
 </div>
 
 
@@ -429,6 +478,8 @@ var jiathis_config = {data_track_clickback:'true'};
     <p class="meta">
       
       
+        <a class="basic-alignment right" href="/blog/20100119/mysql/" title="Next Post: mysql随笔">mysql随笔 &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -447,6 +498,10 @@ var jiathis_config = {data_track_clickback:'true'};
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/20100119/mysql/">Mysql随笔</a>
+      </li>
     
       <li class="post">
         <a href="/blog/20100118/linux/">Linux随笔</a>
