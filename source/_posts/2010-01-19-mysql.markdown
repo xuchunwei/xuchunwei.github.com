@@ -1,0 +1,81 @@
+---
+layout: post
+title: "mysql随笔"
+date: 2010-01-19 21:43:59 +0800
+comments: true
+categories: technology
+description: 'mysql命令'
+keywords: mysql
+---
+
+mysql是web开发使用最广泛的数据库之一，最让我欣赏的是它是免费的
+
+<!--more-->
+
+##常用命令
+
+mysql服务的启动和停止
+```
+net stop mysql
+net start mysql
+```
+登陆mysql
+```
+mysql -u user -p password  # 如果是连接到另外的机器上，则需要加入一个参数-h机器IP
+```
+增加新用户
+```
+grant 权限 on 数据库.* to 用户名@登录主机 identified by “密码”  # 增加一个用户user1密码为password1，让其可以在本机上登录， 并对所有数据库有查询、插入、修改、删除的权限。
+首先用以root用户连入mysql，然后键入以下命令：
+grant select,insert,update,delete on *.* to user1@localhost Identified by “password1″;
+如果希望该用户能够在任何机器上登陆mysql，则将localhost改为”%”。
+如果你不想user1有密码，可以再打一个命令将密码去掉。
+grant select,insert,update,delete on mydb.* to user1@localhost identified by “”;
+```
+
+- 显示数据库列表
+```
+show databases;
+```
+- 显示库中的数据表
+```
+use mysql;
+show tables;
+```
+- 显示数据表的结构
+```
+describe tableName;
+```
+- 建库与删库
+```
+create database databaseName;
+drop database databaseName;
+```
+- 建表
+```
+use databaseName;
+create table tableName(字段列表);
+drop table tableName;
+```
+- 清空表中记录
+```
+delete from tableName;
+```
+
+###导出和导入数据
+- 导出数据  
+mysqldump –opt test > mysql.test
+即将数据库test数据库导出到mysql.test文件，后者是一个文本文件
+如：mysqldump -u root -p123456 –databases dbname > mysql.dbname
+就是把数据库dbname导出到文件mysql.dbname中。
+- 导入数据
+```  
+use mysql;
+source /var/mysql.sql;
+```
+- 将文本数据导入数据库  
+文本数据的字段数据之间用tab键隔开。
+```
+use test;
+load data local infile “文件名” into table 表名;
+```
