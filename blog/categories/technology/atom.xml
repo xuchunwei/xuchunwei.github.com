@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | 深海后花园]]></title>
   <link href="http://www.xuchunwei.com/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2015-01-23T11:04:32+08:00</updated>
+  <updated>2015-01-23T11:37:19+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -326,13 +326,13 @@ shell使用的三种引号:
 <p>linux 文本启动方式<br/>
 修改 /etc/inittab 文件中的 id:5:initdefault 中的5改成3</p>
 
-<blockquote><p>0：关机
-1：单用户模式
-2：多用户(不支持网络登录)
-3：多用户
-4：保留(系统保留)
-5：x-window
-6：重启
+<blockquote><p>0：关机<br/>
+1：单用户模式<br/>
+2：多用户(不支持网络登录)<br/>
+3：多用户<br/>
+4：保留(系统保留)<br/>
+5：x-window<br/>
+6：重启<br/>
 至此系统重启后就进入命令行状态，但是对debian系统来说，还是不行的，还需
 进入 /etc/rc3.d。然后把s30gdm 改成k70gdm。
 <code>
@@ -361,13 +361,13 @@ sudo apt-get install ssh
 安装zip
 sudo apt-get install unzip
 </code>
-mysql的配置文件my.cnf /etc/mysql/my.cnf
-apache2的配置文件apache2.conf /etc/apache2/apache2.conf
-php的配置文件php.ini /etc/php5/apache2/php.ini
+mysql的配置文件my.cnf /etc/mysql/my.cnf<br/>
+apache2的配置文件apache2.conf /etc/apache2/apache2.conf<br/>
+php的配置文件php.ini /etc/php5/apache2/php.ini<br/>
 vsftpd的配置文件vsftpd.conf /etc/vsftpd.conf</p>
 
-<p>apache的启动和停止命令 /etc/init.d/apache2 start|restart|stop
-mysql的启动和停止命令 /etc/init.d/mysql start|restart|stop
+<p>apache的启动和停止命令 /etc/init.d/apache2 start|restart|stop<br/>
+mysql的启动和停止命令 /etc/init.d/mysql start|restart|stop<br/>
 vsftpd的配置文件 /etc/init.d/vsftpd start|restart|stop</p>
 
 <p>mysql数据库文件存在/var/lib/mysql</p></blockquote>
