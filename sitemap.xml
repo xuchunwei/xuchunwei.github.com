@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://xuchunwei.github.io/blog/archives/</loc>
-    <lastmod>2015-01-11T16:31:21+08:00</lastmod>
+    <loc>http://www.xuchunwei.com/blog/20100119/mysql/</loc>
+    <lastmod>2010-01-19T21:43:59+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://www.xuchunwei.com/blog/20100118/linux/</loc>
+    <lastmod>2010-01-18T15:09:43+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://www.xuchunwei.com/blog/archives/</loc>
+    <lastmod>2015-01-23T10:54:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://xuchunwei.github.io/</loc>
-    <lastmod>2015-01-11T16:31:21+08:00</lastmod>
+    <loc>http://www.xuchunwei.com/</loc>
+    <lastmod>2015-01-23T10:54:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>http://xuchunwei.github.io/about/</loc>
-    <lastmod>2015-01-11T16:31:21+08:00</lastmod>
+    <loc>http://www.xuchunwei.com/about/</loc>
+    <lastmod>2015-01-23T10:54:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
