@@ -130,19 +130,13 @@ var _hmt = _hmt || [];
 </span><span class='line'>grant select,insert,update,delete on mydb.* to user1@localhost identified by “”;</span></code></pre></td></tr></table></div></figure>
 
 
-<ul>
-<li>显示数据库列表</li>
-</ul>
-
+<p>显示数据库列表</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>show databases;</span></code></pre></td></tr></table></div></figure>
 
 
-<ul>
-<li>显示库中的数据表</li>
-</ul>
-
+<p>显示库中的数据表</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -150,19 +144,13 @@ var _hmt = _hmt || [];
 </span><span class='line'>show tables;</span></code></pre></td></tr></table></div></figure>
 
 
-<ul>
-<li>显示数据表的结构</li>
-</ul>
-
+<p>显示数据表的结构</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>describe tableName;</span></code></pre></td></tr></table></div></figure>
 
 
-<ul>
-<li>建库与删库</li>
-</ul>
-
+<p>建库与删库</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -170,10 +158,7 @@ var _hmt = _hmt || [];
 </span><span class='line'>drop database databaseName;</span></code></pre></td></tr></table></div></figure>
 
 
-<ul>
-<li>建表</li>
-</ul>
-
+<p>建表</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -183,26 +168,19 @@ var _hmt = _hmt || [];
 </span><span class='line'>drop table tableName;</span></code></pre></td></tr></table></div></figure>
 
 
-<ul>
-<li>清空表中记录</li>
-</ul>
-
+<p>清空表中记录</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>delete from tableName;</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>truncate tableName;</span></code></pre></td></tr></table></div></figure>
 
 
-<h3>导出和导入数据</h3>
+<p>导出数据</p>
 
-<ul>
-<li>导出数据<br/>
-mysqldump –opt test > mysql.test
-即将数据库test数据库导出到mysql.test文件，后者是一个文本文件
-如：mysqldump -u root -p123456 –databases dbname > mysql.dbname
-就是把数据库dbname导出到文件mysql.dbname中。</li>
-<li>导入数据</li>
-</ul>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mysqldump –opt test &gt; mysql.test  # mysqldump -u root -p123456 –databases dbname &gt; mysql.dbname</span></code></pre></td></tr></table></div></figure>
 
+
+<p>导入数据</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -210,11 +188,8 @@ mysqldump –opt test > mysql.test
 </span><span class='line'>source /var/mysql.sql;</span></code></pre></td></tr></table></div></figure>
 
 
-<ul>
-<li>将文本数据导入数据库<br/>
-文本数据的字段数据之间用tab键隔开。</li>
-</ul>
-
+<p>将文本数据导入数据库<br/>
+文本数据的字段数据之间用tab键隔开。</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -284,6 +259,8 @@ var jiathis_config = {data_track_clickback:'true'};
         <a class="basic-alignment left" href="/blog/20100118/linux/" title="Previous Post: linux随笔">&laquo; linux随笔</a>
       
       
+        <a class="basic-alignment right" href="/blog/20140127/yii/" title="Next Post: yii随笔">yii随笔 &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -301,6 +278,10 @@ var jiathis_config = {data_track_clickback:'true'};
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/20140127/yii/">Yii随笔</a>
+      </li>
     
       <li class="post">
         <a href="/blog/20100119/mysql/">Mysql随笔</a>
