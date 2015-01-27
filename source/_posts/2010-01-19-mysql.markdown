@@ -33,47 +33,44 @@ grant select,insert,update,delete on *.* to user1@localhost Identified by “pas
 grant select,insert,update,delete on mydb.* to user1@localhost identified by “”;
 ```
 
-- 显示数据库列表
+显示数据库列表
 ```
 show databases;
 ```
-- 显示库中的数据表
+显示库中的数据表
 ```
 use mysql;
 show tables;
 ```
-- 显示数据表的结构
+显示数据表的结构
 ```
 describe tableName;
 ```
-- 建库与删库
+建库与删库
 ```
 create database databaseName;
 drop database databaseName;
 ```
-- 建表
+建表
 ```
 use databaseName;
 create table tableName(字段列表);
 drop table tableName;
 ```
-- 清空表中记录
+清空表中记录
 ```
-delete from tableName;
+truncate tableName;
 ```
-
-###导出和导入数据
-- 导出数据  
-mysqldump –opt test > mysql.test
-即将数据库test数据库导出到mysql.test文件，后者是一个文本文件
-如：mysqldump -u root -p123456 –databases dbname > mysql.dbname
-就是把数据库dbname导出到文件mysql.dbname中。
-- 导入数据
+导出数据
+```  
+mysqldump –opt test > mysql.test  # mysqldump -u root -p123456 –databases dbname > mysql.dbname
+```
+导入数据
 ```  
 use mysql;
 source /var/mysql.sql;
 ```
-- 将文本数据导入数据库  
+将文本数据导入数据库  
 文本数据的字段数据之间用tab键隔开。
 ```
 use test;
