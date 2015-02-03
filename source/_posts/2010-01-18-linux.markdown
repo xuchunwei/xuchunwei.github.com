@@ -52,13 +52,15 @@ u # 复原前一个动作
 ```
 ##shell
 rm[remove] 删除文件或目录  
-rm -f filename -f 强制删除文件。-rf 删除目录不提示确认
+rm -f filename -f 强制删除文件不提醒。-r 删除目录
 
 cp[copy] 复制文件/文件夹  
 cp -i 源文件 目标文件 -i 当目标文件存在时提示。-r 复制文件夹
+-p  连带文件属性复制，-d 若源文件是链接文件，则复制链接属性
+-a 相当于 -rpd
 
 cd[change directory] 切换目录  
-cd .. 返回上一层。cd 返回用户目录。
+cd .. 返回上一层。cd 返回用户目录。cd - 进入上次目录
 
 cat 显示文件内容  
 cat > filename 创建一个文件。cat file1 file2 > file 合并文件
@@ -68,12 +70,13 @@ more 显示文件内容
 
 ls[ list ] 列出目录内容  
 ls -a 显示所有文件包含以.开头的隐含文件。ls -l 列出文件的详细信息
+ls -d 查看目录属性，ls -h 人性化显示文件大小, ll 等同于 ls -l
 
 mv[move] 移动或更名现有目录或文件  
 mv -i 源文件 目标文件 -i 当目标文件存在时提示 -f 禁止交互操作,不提示,-i失去作用。mv * ../ 移动当前所有文件到上一级。
 
 mkdir[make directories] 建立目录  
-mkdir 777 dirname 建立777权限的目录
+mkdir -p aa/aa/bb 递归创建三个目录
 
 chmod[change mode] 更改文件或目录的权限  
 chmod a=rwx file 更改file为所有权限。chmod abc file a代表user,b代表group,c代表other 的权限,r=4,w=2,x=1 chmod -R 777 file 文件夹及子文件夹一并处理
