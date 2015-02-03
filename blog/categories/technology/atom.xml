@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | 深海后花园]]></title>
   <link href="http://www.xuchunwei.com/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2015-01-27T23:20:25+08:00</updated>
+  <updated>2015-02-03T23:42:53+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -287,13 +287,15 @@ u # 复原前一个动作
 <h2>shell</h2>
 
 <p>rm[remove] 删除文件或目录<br/>
-rm -f filename -f 强制删除文件。-rf 删除目录不提示确认</p>
+rm -f filename -f 强制删除文件不提醒。-r 删除目录</p>
 
 <p>cp[copy] 复制文件/文件夹<br/>
-cp -i 源文件 目标文件 -i 当目标文件存在时提示。-r 复制文件夹</p>
+cp -i 源文件 目标文件 -i 当目标文件存在时提示。-r 复制文件夹
+-p  连带文件属性复制，-d 若源文件是链接文件，则复制链接属性
+-a 相当于 -rpd</p>
 
 <p>cd[change directory] 切换目录<br/>
-cd .. 返回上一层。cd 返回用户目录。</p>
+cd .. 返回上一层。cd 返回用户目录。cd - 进入上次目录</p>
 
 <p>cat 显示文件内容<br/>
 cat > filename 创建一个文件。cat file1 file2 > file 合并文件</p>
@@ -302,13 +304,14 @@ cat > filename 创建一个文件。cat file1 file2 > file 合并文件</p>
 和cat类似，分屏显示</p>
 
 <p>ls[ list ] 列出目录内容<br/>
-ls -a 显示所有文件包含以.开头的隐含文件。ls -l 列出文件的详细信息</p>
+ls -a 显示所有文件包含以.开头的隐含文件。ls -l 列出文件的详细信息
+ls -d 查看目录属性，ls -h 人性化显示文件大小, ll 等同于 ls -l</p>
 
 <p>mv[move] 移动或更名现有目录或文件<br/>
 mv -i 源文件 目标文件 -i 当目标文件存在时提示 -f 禁止交互操作,不提示,-i失去作用。mv * ../ 移动当前所有文件到上一级。</p>
 
 <p>mkdir[make directories] 建立目录<br/>
-mkdir 777 dirname 建立777权限的目录</p>
+mkdir -p aa/aa/bb 递归创建三个目录</p>
 
 <p>chmod[change mode] 更改文件或目录的权限<br/>
 chmod a=rwx file 更改file为所有权限。chmod abc file a代表user,b代表group,c代表other 的权限,r=4,w=2,x=1 chmod -R 777 file 文件夹及子文件夹一并处理</p>
