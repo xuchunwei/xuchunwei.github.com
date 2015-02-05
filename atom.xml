@@ -4,7 +4,7 @@
   <title><![CDATA[深海后花园]]></title>
   <link href="http://www.xuchunwei.com/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2015-02-05T10:41:39+08:00</updated>
+  <updated>2015-02-05T10:48:59+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -29,59 +29,71 @@
 </pre></td><td class='code'><pre><code class=''><span class='line'>http://hostname/requirements/index.php</span></code></pre></td></tr></table></div></figure>
 
 
-<p>安装
-&#8220;
-cd framework
-php yiic webname ../   // 需在 config/main.php 加 ‘timezone’ =>’Asia/singapore’</p>
+<p>安装</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>连接DB</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd framework
+</span><span class='line'>php yiic webname ../   // 需在 config/main.php 加 ‘timezone’ =&gt;’Asia/singapore’</span></code></pre></td></tr></table></div></figure>
 
 
-<p>改config/main.php,若用mysql则去掉’db’=>array(‘connectionString’=>’mysql:host=localhost;dbname=test’,xxx),注释</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>测试连接DB</span></code></pre></td></tr></table></div></figure>
-
-
-<p>
-var_dump(Yii::app()->db)</p>
+<p>连接DB</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>配置gii</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>改config/main.php,若用mysql则去掉’db’=&gt;array(‘connectionString’=&gt;’mysql:host=localhost;dbname=test’,xxx),注释</span></code></pre></td></tr></table></div></figure>
 
 
-<p>改config/main.php,去掉‘gii’=>array(‘class’=>’system.gii.GiiModule’,xxx),注释
-注：‘password’=‘xxx’,是登录gii的密码。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>设置默认控制器</span></code></pre></td></tr></table></div></figure>
-
-
-<p>改config/main.php 加 ‘defaultController’ => ‘xxx’,</p>
+<p>测试连接DB</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Yii urlManager</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var_dump(Yii::app()-&gt;db)</span></code></pre></td></tr></table></div></figure>
 
 
-<p>改config/main.php,去掉‘urlManager’=>array(xxx),注释
-‘urlSuffix’=>’.html’,以html做为后缀
-url去掉index.php
-1.添加 ‘showScriptName’=>false,
-2.在网站根目录添加.htaccess文件
-options +FollowSymLinks
-RewriteEngine on
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . index.php
-3.apache.conf中添加AllowOverride All
-4.apache安装了rewrite模块</p>
+<p>配置gii</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>改config/main.php,去掉‘gii’=&gt;array(‘class’=&gt;’system.gii.GiiModule’,xxx),注释
+</span><span class='line'>注：‘password’=‘xxx’,是登录gii的密码。</span></code></pre></td></tr></table></div></figure>
+
+
+<p>设置默认控制器</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>改config/main.php 加 ‘defaultController’ =&gt; ‘xxx’,</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Yii urlManager</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>```
-</span><span class='line'>$this-&gt;render(‘xxx’) 会载入layouts里的布局
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>改config/main.php,去掉‘urlManager’=&gt;array(xxx),注释
+</span><span class='line'>‘urlSuffix’=&gt;’.html’,以html做为后缀
+</span><span class='line'>url去掉index.php
+</span><span class='line'>1.添加 ‘showScriptName’=&gt;false,
+</span><span class='line'>2.在网站根目录添加.htaccess文件
+</span><span class='line'>options +FollowSymLinks
+</span><span class='line'>RewriteEngine on
+</span><span class='line'>RewriteCond %{REQUEST_FILENAME} !-f
+</span><span class='line'>RewriteCond %{REQUEST_FILENAME} !-d
+</span><span class='line'>RewriteRule . index.php
+</span><span class='line'>3.apache.conf中添加AllowOverride All
+</span><span class='line'>4.apache安装了rewrite模块</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$this-&gt;render(‘xxx’) 会载入layouts里的布局
 </span><span class='line'>$this-&gt;renderPartial(‘xxx’) 不载入布局，也不会载入框架自带的jquery等</span></code></pre></td></tr></table></div></figure>
 
 
@@ -119,10 +131,10 @@ RewriteRule . index.php
 表名和列名都小写，单词以_分割，表名使用单数名字</p>
 
 <p>yii DAO包含四个类<br/>
-* CDbConnection 代表一个数据库连接
-* CDbCommand 代表一条通过数据库执行的 SQL 语句
-* CDbDataReader 代表一个只向前移动的，来自一个查询结果集中的行的流
-* CDbTransaction 代表一个数据库事务</p>
+*   CDbConnection 代表一个数据库连接
+*   CDbCommand 代表一条通过数据库执行的 SQL 语句
+*   CDbDataReader 代表一个只向前移动的，来自一个查询结果集中的行的流
+*   CDbTransaction 代表一个数据库事务</p>
 
 <p>执行sql语句</p>
 
@@ -218,8 +230,7 @@ RewriteRule . index.php
 </span><span class='line'>Post::model()-&gt;exists($condition,$params) 检查是否至少有一行复合指定的条件</span></code></pre></td></tr></table></div></figure>
 
 
-<p>`
-更新记录</p>
+<p>更新记录</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
