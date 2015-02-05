@@ -100,28 +100,46 @@ var _hmt = _hmt || [];
 
 <p>查看环境是否支持</p>
 
-<p><a href="http://hostname/requirements/index.php">http://hostname/requirements/index.php</a></p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>http://hostname/requirements/index.php</span></code></pre></td></tr></table></div></figure>
+
 
 <p>安装
+&#8220;
 cd framework
-php yiic webname ../
-注：需在 config/main.php 加 ‘timezone’ =>’Asia/singapore’</p>
+php yiic webname ../   // 需在 config/main.php 加 ‘timezone’ =>’Asia/singapore’</p>
 
-<p>连接DB
-改config/main.php,若用mysql则去掉’db’=>array(‘connectionString’=>’mysql:host=localhost;dbname=test’,xxx),注释</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>连接DB</span></code></pre></td></tr></table></div></figure>
 
-<p>测试连接DB
+
+<p>改config/main.php,若用mysql则去掉’db’=>array(‘connectionString’=>’mysql:host=localhost;dbname=test’,xxx),注释</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>测试连接DB</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
 var_dump(Yii::app()->db)</p>
 
-<p>配置gii
-改config/main.php,去掉‘gii’=>array(‘class’=>’system.gii.GiiModule’,xxx),注释
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>配置gii</span></code></pre></td></tr></table></div></figure>
+
+
+<p>改config/main.php,去掉‘gii’=>array(‘class’=>’system.gii.GiiModule’,xxx),注释
 注：‘password’=‘xxx’,是登录gii的密码。</p>
 
-<p>设置默认控制器
-改config/main.php 加 ‘defaultController’ => ‘xxx’,</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>设置默认控制器</span></code></pre></td></tr></table></div></figure>
 
-<p>Yii urlManager
-改config/main.php,去掉‘urlManager’=>array(xxx),注释
+
+<p>改config/main.php 加 ‘defaultController’ => ‘xxx’,</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Yii urlManager</span></code></pre></td></tr></table></div></figure>
+
+
+<p>改config/main.php,去掉‘urlManager’=>array(xxx),注释
 ‘urlSuffix’=>’.html’,以html做为后缀
 url去掉index.php
 1.添加 ‘showScriptName’=>false,
@@ -134,15 +152,27 @@ RewriteRule . index.php
 3.apache.conf中添加AllowOverride All
 4.apache安装了rewrite模块</p>
 
-<p>$this->render(‘xxx’) 会载入layouts里的布局
-$this->renderPartial(‘xxx’) 不载入布局，也不会载入框架自带的jquery等</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>```
+</span><span class='line'>$this-&gt;render(‘xxx’) 会载入layouts里的布局
+</span><span class='line'>$this-&gt;renderPartial(‘xxx’) 不载入布局，也不会载入框架自带的jquery等</span></code></pre></td></tr></table></div></figure>
 
-<p>生成模型
-访问 <a href="http://xxx/index.php?r=gii,%E7%82%B9%E5%87%BBModel">http://xxx/index.php?r=gii,%E7%82%B9%E5%87%BBModel</a> Generator</p>
 
-<p>生成CRUD代码
-点击Crud Generator,Model Class中输入创建好的Model
-注：访问创建的crud，<a href="http://xxx/index.php?r=">http://xxx/index.php?r=</a>{modelClassName}</p>
+<p>生成模型</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>访问 http://xxx/index.php?r=gii,点击Model Generator</span></code></pre></td></tr></table></div></figure>
+
+
+<p>生成CRUD代码</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>点击Crud Generator,Model Class中输入创建好的Model
+</span><span class='line'>访问创建的crud，http://xxx/index.php?r={modelClassName}</span></code></pre></td></tr></table></div></figure>
+
 
 <p>在生产环境下删除/index.php中的 defined(‘YII_DEBUG’)ordefine(‘YII_TRACE_LEVEL’,3)</p>
 
@@ -150,88 +180,171 @@ $this->renderPartial(‘xxx’) 不载入布局，也不会载入框架自带的
 
 <p>在/protected/controllers/xxxController.php中 accessRules()可控制用户的使用权限</p>
 
-<p>开启DB日志
-在config/main.php 中的 ‘db’=>array() 添加 ‘enableProfiling’=>YII_DEBUG,
-‘enableParamLogging’=>YII_DEBUG,还要在 ‘log’=>array() 添加
-array(‘class’=>’CWebLogRoute’,’levels’=>’trace’,’categories’=>’system.db.*’)</p>
+<p>开启DB日志</p>
 
-<p>yii数据库规范
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>在config/main.php 中的 ‘db’=&gt;array() 添加 ‘enableProfiling’=&gt;YII_DEBUG,
+</span><span class='line'>‘enableParamLogging’=&gt;YII_DEBUG,还要在 ‘log’=&gt;array() 添加
+</span><span class='line'>array(‘class’=&gt;’CWebLogRoute’,’levels’=&gt;’trace’,’categories’=&gt;’system.db.*’)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>yii数据库规范<br/>
 表名和列名都小写，单词以_分割，表名使用单数名字</p>
 
-<p>yii DAO包含四个类
-CDbConnection 代表一个数据库连接
-CDbCommand 代表一条通过数据库执行的 SQL 语句
-CDbDataReader 代表一个只向前移动的，来自一个查询结果集中的行的流
-CDbTransaction 代表一个数据库事务</p>
+<p>yii DAO包含四个类<br/>
+* CDbConnection 代表一个数据库连接
+* CDbCommand 代表一条通过数据库执行的 SQL 语句
+* CDbDataReader 代表一个只向前移动的，来自一个查询结果集中的行的流
+* CDbTransaction 代表一个数据库事务</p>
 
-<p>执行sql语句
-$command = YII::app()->db->createCommand($sql)
-$command->execute() 执行无查询sql
-$command->query() 执行一个sql查询
-$command->queryAll() 查询并返回结果中的所有行
-$command->queryRow() 查询并返回结果中的第一行
-$command->queryColumn() 查询并返回结果中的第一列
-$command->queryScalar() 查询并返回结果中第一行的第一个字段</p>
+<p>执行sql语句</p>
 
-<p>$command->bindParam(‘:x’,$value,PDO::PARAM_STR/PDO::PARAM_INT)
-$command->bindValue(‘:x’,’xxx’,PDO::PARAM_STR/PDO::PARAM_INT)
-注：若配置表前缀可以在sql语句中写</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$command = Yii::app()-&gt;db-&gt;createCommand($sql)
+</span><span class='line'>$command-&gt;execute() 执行无查询sql
+</span><span class='line'>$command-&gt;query() 执行一个sql查询
+</span><span class='line'>$command-&gt;queryAll() 查询并返回结果中的所有行
+</span><span class='line'>$command-&gt;queryRow() 查询并返回结果中的第一行
+</span><span class='line'>$command-&gt;queryColumn() 查询并返回结果中的第一列
+</span><span class='line'>$command-&gt;queryScalar() 查询并返回结果中第一行的第一个字段
+</span><span class='line'>
+</span><span class='line'>$command-&gt;bindParam(‘:x’,$value,PDO::PARAM_STR/PDO::PARAM_INT)
+</span><span class='line'>$command-&gt;bindValue(‘:x’,’xxx’,PDO::PARAM_STR/PDO::PARAM_INT)
+</span><span class='line'>注：若配置表前缀可以在sql语句中写
+</span><span class='line'>
+</span><span class='line'>Yii::app()-&gt;db-&gt;createCommand()-&gt;insert($tableName, array('name'=&gt;'aa','age'=&gt;1));  // 插入数据
+</span><span class='line'>Yii:app()-&gt;slave_db-&gt;createCommand()-&gt;select('*')-&gt;from($tableNmae)-&gt;where('name="a"')-&gt;queryAll()  // 查询数据
+</span><span class='line'>Yii::app()-&gt;db-&gt;createCommand()-&gt;deletc($tableName, 'name="a"')  // 删除数据
+</span><span class='line'>Yii::app()-&gt;db-&gt;createCommand()-&gt;update(array('name'=&gt;'b'),'age=1')  // 更新数据</span></code></pre></td></tr></table></div></figure>
 
-<p>获得查询结果
-$dataReader = $command->query();
-while(($row=$dataReader->read())!==false) { … } 重复调用 read() 直到它返回 false
-foreach($dataReader as $row) { … } 使用 foreach 遍历数据中的每一行
-$rows=$dataReader->readAll(); 一次性提取所有行到一个数组</p>
+
+<p>获得查询结果</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$dataReader = $command-&gt;query();
+</span><span class='line'>while(($row=$dataReader-&gt;read())!==false) { … } 重复调用 read() 直到它返回 false
+</span><span class='line'>foreach($dataReader as $row) { … } 使用 foreach 遍历数据中的每一行
+</span><span class='line'>$rows=$dataReader-&gt;readAll(); 一次性提取所有行到一个数组</span></code></pre></td></tr></table></div></figure>
+
 
 <p>读取记录(AR)</p>
 
-<p>$post=Post::model()->find($condition,$params); 查找满足指定条件的结果中的第一行
-例:$posts=Post::model()->find(array(
-‘select’=>’title’,
-‘condition’=>’postID=:postID’,
-‘params’=>array(‘:postID’=>10),
-))
-$posts=Post::model()->find(‘id=:id’,array(‘:id’=>$id))
-$post=Post::model()->findByPk($postID,$condition,$params); 查找具有指定主键值的那一行
-$post=Post::model()->findByAttributes($attributes,$condition,$params); 查找具有指定属性值的行
-例:$post=Post::model()->findByAttributes(array(‘name’=>$name))
-$post=Post::model()->findBySql($sql,$params); 通过指定的 SQL 语句查找结果中的第一行</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$post=Post::model()-&gt;find($condition,$params); 查找满足指定条件的结果中的第一行
+</span><span class='line'>例:$posts=Post::model()-&gt;find(array(
+</span><span class='line'>‘select’=&gt;’title’,
+</span><span class='line'>‘condition’=&gt;’postID=:postID’,
+</span><span class='line'>‘params’=&gt;array(‘:postID’=&gt;10),
+</span><span class='line'>))
+</span><span class='line'>$posts=Post::model()-&gt;find(‘id=:id’,array(‘:id’=&gt;$id))
+</span><span class='line'>$post=Post::model()-&gt;findByPk($postID,$condition,$params); 查找具有指定主键值的那一行
+</span><span class='line'>$post=Post::model()-&gt;findByAttributes($attributes,$condition,$params); 查找具有指定属性值的行
+</span><span class='line'>例:$post=Post::model()-&gt;findByAttributes(array(‘name’=&gt;$name))
+</span><span class='line'>$post=Post::model()-&gt;findBySql($sql,$params); 通过指定的 SQL 语句查找结果中的第一行
+</span><span class='line'>
+</span><span class='line'>$posts=Post::model()-&gt;findAll($condition,$params); 查找满足指定条件的所有行
+</span><span class='line'>$posts=Post::model()-&gt;findAllByPk($postIDs,$condition,$params); 查找带有指定主键的所有行
+</span><span class='line'>$posts=Post::model()-&gt;findAllByAttributes($attributes,$condition,$params); 查找带有指定属性值的所有行
+</span><span class='line'>$posts=Post::model()-&gt;findAllBySql($sql,$params); 通过指定的SQL语句查找所有行
+</span><span class='line'>注：如果没有任何东西符合查询条件，findAll 将返回一个空数组。find 会在没有找到什么东西时返回 null
+</span><span class='line'>
+</span><span class='line'>Post::model()-&gt;count($condition,$params) 获取满足指定条件的行数
+</span><span class='line'>Post::model()-&gt;countBySql($sql,$params) 通过指定的 SQL 获取结果行数
+</span><span class='line'>Post::model()-&gt;exists($condition,$params) 检查是否至少有一行复合指定的条件</span></code></pre></td></tr></table></div></figure>
 
-<p>$posts=Post::model()->findAll($condition,$params); 查找满足指定条件的所有行
-$posts=Post::model()->findAllByPk($postIDs,$condition,$params); 查找带有指定主键的所有行
-$posts=Post::model()->findAllByAttributes($attributes,$condition,$params); 查找带有指定属性值的所有行
-$posts=Post::model()->findAllBySql($sql,$params); 通过指定的SQL语句查找所有行
-注：如果没有任何东西符合查询条件，findAll 将返回一个空数组。find 会在没有找到什么东西时返回 null</p>
 
-<p>Post::model()->count($condition,$params) 获取满足指定条件的行数
-Post::model()->countBySql($sql,$params) 通过指定的 SQL 获取结果行数
-Post::model()->exists($condition,$params) 检查是否至少有一行复合指定的条件</p>
+<p>`
+更新记录</p>
 
-<p>更新记录
-save可执行插入和更新操作，如果AR使用new创建的是插入，如果是find或findAll方法，则是更新
-如：$post = Post::model()->findByPk(10);
-$post -> title = ‘new title’;
-$post -> save() //更新</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>save可执行插入和更新操作，如果AR使用new创建的是插入，如果是find或findAll方法，则是更新
+</span><span class='line'>如：$post = Post::model()-&gt;findByPk(10);
+</span><span class='line'>$post -&gt; title = ‘new title’;
+</span><span class='line'>$post -&gt; save() //更新
+</span><span class='line'>
+</span><span class='line'>Post::model()-&gt;updateAll($attributes,$condition,$params); 更新符合指定条件的行
+</span><span class='line'>Post::model()-&gt;updateByPk($pk,$attributes,$condition,$params); 更新符合指定条件和主键的行
+</span><span class='line'>Post::model()-&gt;updateCounters($counters,$condition,$params); 更新满足指定条件的行的计数列</span></code></pre></td></tr></table></div></figure>
 
-<p>Post::model()->updateAll($attributes,$condition,$params); 更新符合指定条件的行
-Post::model()->updateByPk($pk,$attributes,$condition,$params); 更新符合指定条件和主键的行
-Post::model()->updateCounters($counters,$condition,$params); 更新满足指定条件的行的计数列</p>
 
-<p>删除记录
-$post = Post::model()->findByPk(10);
-$post -> delete();
-Post::model()->deleteAll($condition,$params); 删除符合指定条件的行
-Post::model()->deleteByPk($pk,$condition,$params); 删除符合指定条件和主键的行
-注：删除之后，AR实例仍然不变，但数据表的数据会删除</p>
+<p>删除记录</p>
 
-<p>数据验证
-当save()时自动验证，基于rules()指定规则验证
-$post->title=$<em>POST[&lsquo;title&rsquo;];
-$post->content=$</em>POST[&lsquo;content&rsquo;];
-$post->save();
-可以简化为
-$post->attributes=$_POST[&lsquo;Post&rsquo;];
-$post->save();</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$post = Post::model()-&gt;findByPk(10);
+</span><span class='line'>$post -&gt; delete();
+</span><span class='line'>Post::model()-&gt;deleteAll($condition,$params); 删除符合指定条件的行
+</span><span class='line'>Post::model()-&gt;deleteByPk($pk,$condition,$params); 删除符合指定条件和主键的行
+</span><span class='line'>注：删除之后，AR实例仍然不变，但数据表的数据会删除</span></code></pre></td></tr></table></div></figure>
+
+
+<p>数据验证</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>当save()时自动验证，基于rules()指定规则验证
+</span><span class='line'>$post-&gt;title=$_POST['title'];
+</span><span class='line'>$post-&gt;content=$_POST['content'];
+</span><span class='line'>$post-&gt;save();
+</span><span class='line'>可以简化为
+</span><span class='line'>$post-&gt;attributes=$_POST['Post'];
+</span><span class='line'>$post-&gt;save();</span></code></pre></td></tr></table></div></figure>
+
 </div>
 
 

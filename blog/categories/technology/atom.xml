@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | 深海后花园]]></title>
   <link href="http://www.xuchunwei.com/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2015-02-03T23:42:53+08:00</updated>
+  <updated>2015-02-05T10:41:39+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -23,29 +23,34 @@
 <!--more-->
 
 
-<p>查看环境是否支持</p>
-
-<p><a href="http://hostname/requirements/index.php">http://hostname/requirements/index.php</a></p>
-
-<p>安装
+<p>查看环境是否支持
+<code>
+http://hostname/requirements/index.php
+</code>
+安装
+&#8220;
 cd framework
-php yiic webname ../
-注：需在 config/main.php 加 ‘timezone’ =>’Asia/singapore’</p>
-
-<p>连接DB
-改config/main.php,若用mysql则去掉’db’=>array(‘connectionString’=>’mysql:host=localhost;dbname=test’,xxx),注释</p>
-
-<p>测试连接DB
-var_dump(Yii::app()->db)</p>
-
-<p>配置gii
+php yiic webname ../   // 需在 config/main.php 加 ‘timezone’ =>’Asia/singapore’
+<code>
+连接DB
+</code>
+改config/main.php,若用mysql则去掉’db’=>array(‘connectionString’=>’mysql:host=localhost;dbname=test’,xxx),注释
+<code>
+测试连接DB
+</code>
+var_dump(Yii::app()->db)
+<code>
+配置gii
+</code>
 改config/main.php,去掉‘gii’=>array(‘class’=>’system.gii.GiiModule’,xxx),注释
-注：‘password’=‘xxx’,是登录gii的密码。</p>
-
-<p>设置默认控制器
-改config/main.php 加 ‘defaultController’ => ‘xxx’,</p>
-
-<p>Yii urlManager
+注：‘password’=‘xxx’,是登录gii的密码。
+<code>
+设置默认控制器
+</code>
+改config/main.php 加 ‘defaultController’ => ‘xxx’,
+<code>
+Yii urlManager
+</code>
 改config/main.php,去掉‘urlManager’=>array(xxx),注释
 ‘urlSuffix’=>’.html’,以html做为后缀
 url去掉index.php
@@ -57,40 +62,65 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . index.php
 3.apache.conf中添加AllowOverride All
-4.apache安装了rewrite模块</p>
-
-<p>$this->render(‘xxx’) 会载入layouts里的布局
-$this->renderPartial(‘xxx’) 不载入布局，也不会载入框架自带的jquery等</p>
-
-<p>生成模型
-访问 <a href="http://xxx/index.php?r=gii,%E7%82%B9%E5%87%BBModel">http://xxx/index.php?r=gii,%E7%82%B9%E5%87%BBModel</a> Generator</p>
-
-<p>生成CRUD代码
+4.apache安装了rewrite模块
+<code>
+</code>
+$this->render(‘xxx’) 会载入layouts里的布局
+$this->renderPartial(‘xxx’) 不载入布局，也不会载入框架自带的jquery等
+<code>
+生成模型
+</code>
+访问 <a href="http://xxx/index.php?r=gii,%E7%82%B9%E5%87%BBModel">http://xxx/index.php?r=gii,%E7%82%B9%E5%87%BBModel</a> Generator
+<code>
+生成CRUD代码
+</code>
 点击Crud Generator,Model Class中输入创建好的Model
-注：访问创建的crud，<a href="http://xxx/index.php?r=">http://xxx/index.php?r=</a>{modelClassName}</p>
-
-<p>在生产环境下删除/index.php中的 defined(‘YII_DEBUG’)ordefine(‘YII_TRACE_LEVEL’,3)</p>
-
-<p>要访问一个组件可 Yii::app()->{ComponentID}</p>
-
-<p>在/protected/controllers/xxxController.php中 accessRules()可控制用户的使用权限</p>
-
-<p>开启DB日志
-在config/main.php 中的 ‘db’=>array() 添加 ‘enableProfiling’=>YII_DEBUG,
-‘enableParamLogging’=>YII_DEBUG,还要在 ‘log’=>array() 添加
-array(‘class’=>’CWebLogRoute’,’levels’=>’trace’,’categories’=>’system.db.*’)</p>
-
-<p>yii数据库规范
-表名和列名都小写，单词以_分割，表名使用单数名字</p>
-
-<p>yii DAO包含四个类
-CDbConnection 代表一个数据库连接
-CDbCommand 代表一条通过数据库执行的 SQL 语句
-CDbDataReader 代表一个只向前移动的，来自一个查询结果集中的行的流
-CDbTransaction 代表一个数据库事务</p>
-
-<p>执行sql语句
-$command = YII::app()->db->createCommand($sql)
+访问创建的crud，<a href="http://xxx/index.php?r=">http://xxx/index.php?r=</a>{modelClassName}
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>在生产环境下删除/index.php中的 defined(‘YII_DEBUG’)ordefine(‘YII_TRACE_LEVEL’,3)&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;要访问一个组件可 Yii::app()-&gt;{ComponentID}&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;在/protected/controllers/xxxController.php中 accessRules()可控制用户的使用权限&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;开启DB日志
+</span><span class='line'>&lt;code&gt;
+</span><span class='line'>在config/main.php 中的 ‘db’=&gt;array() 添加 ‘enableProfiling’=&gt;YII_DEBUG,
+</span><span class='line'>‘enableParamLogging’=&gt;YII_DEBUG,还要在 ‘log’=&gt;array() 添加
+</span><span class='line'>array(‘class’=&gt;’CWebLogRoute’,’levels’=&gt;’trace’,’categories’=&gt;’system.db.*’)
+</span><span class='line'>&lt;/code&gt;
+</span><span class='line'>yii数据库规范&lt;br/&gt;
+</span><span class='line'>表名和列名都小写，单词以_分割，表名使用单数名字&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;yii DAO包含四个类&lt;br/&gt;
+</span><span class='line'>* CDbConnection 代表一个数据库连接
+</span><span class='line'>* CDbCommand 代表一条通过数据库执行的 SQL 语句
+</span><span class='line'>* CDbDataReader 代表一个只向前移动的，来自一个查询结果集中的行的流
+</span><span class='line'>* CDbTransaction 代表一个数据库事务&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;执行sql语句</span></code></pre></td></tr></table></div></figure>
+$command = Yii::app()->db->createCommand($sql)
 $command->execute() 执行无查询sql
 $command->query() 执行一个sql查询
 $command->queryAll() 查询并返回结果中的所有行
@@ -102,15 +132,21 @@ $command->queryScalar() 查询并返回结果中第一行的第一个字段</p>
 $command->bindValue(‘:x’,’xxx’,PDO::PARAM_STR/PDO::PARAM_INT)
 注：若配置表前缀可以在sql语句中写</p>
 
-<p>获得查询结果
+<p>Yii::app()->db->createCommand()->insert($tableName, array(&lsquo;name&rsquo;=>&lsquo;aa&rsquo;,&lsquo;age&rsquo;=>1));  // 插入数据
+Yii:app()->slave_db->createCommand()->select(&lsquo;*&rsquo;)->from($tableNmae)->where(&lsquo;name=&ldquo;a&rdquo;&rsquo;)->queryAll()  // 查询数据
+Yii::app()->db->createCommand()->deletc($tableName, &lsquo;name=&ldquo;a&rdquo;&rsquo;)  // 删除数据
+Yii::app()->db->createCommand()->update(array(&lsquo;name&rsquo;=>&lsquo;b&rsquo;),&lsquo;age=1&rsquo;)  // 更新数据
+<code>
+获得查询结果
+</code>
 $dataReader = $command->query();
 while(($row=$dataReader->read())!==false) { … } 重复调用 read() 直到它返回 false
 foreach($dataReader as $row) { … } 使用 foreach 遍历数据中的每一行
-$rows=$dataReader->readAll(); 一次性提取所有行到一个数组</p>
-
-<p>读取记录(AR)</p>
-
-<p>$post=Post::model()->find($condition,$params); 查找满足指定条件的结果中的第一行
+$rows=$dataReader->readAll(); 一次性提取所有行到一个数组
+<code>
+读取记录(AR)
+</code>
+$post=Post::model()->find($condition,$params); 查找满足指定条件的结果中的第一行
 例:$posts=Post::model()->find(array(
 ‘select’=>’title’,
 ‘condition’=>’postID=:postID’,
@@ -130,9 +166,10 @@ $posts=Post::model()->findAllBySql($sql,$params); 通过指定的SQL语句查找
 
 <p>Post::model()->count($condition,$params) 获取满足指定条件的行数
 Post::model()->countBySql($sql,$params) 通过指定的 SQL 获取结果行数
-Post::model()->exists($condition,$params) 检查是否至少有一行复合指定的条件</p>
-
-<p>更新记录
+Post::model()->exists($condition,$params) 检查是否至少有一行复合指定的条件
+<code>`
+更新记录
+</code>
 save可执行插入和更新操作，如果AR使用new创建的是插入，如果是find或findAll方法，则是更新
 如：$post = Post::model()->findByPk(10);
 $post -> title = ‘new title’;
@@ -140,23 +177,26 @@ $post -> save() //更新</p>
 
 <p>Post::model()->updateAll($attributes,$condition,$params); 更新符合指定条件的行
 Post::model()->updateByPk($pk,$attributes,$condition,$params); 更新符合指定条件和主键的行
-Post::model()->updateCounters($counters,$condition,$params); 更新满足指定条件的行的计数列</p>
-
-<p>删除记录
+Post::model()->updateCounters($counters,$condition,$params); 更新满足指定条件的行的计数列
+<code>
+删除记录
+</code>
 $post = Post::model()->findByPk(10);
 $post -> delete();
 Post::model()->deleteAll($condition,$params); 删除符合指定条件的行
 Post::model()->deleteByPk($pk,$condition,$params); 删除符合指定条件和主键的行
-注：删除之后，AR实例仍然不变，但数据表的数据会删除</p>
-
-<p>数据验证
+注：删除之后，AR实例仍然不变，但数据表的数据会删除
+<code>
+数据验证
+</code>
 当save()时自动验证，基于rules()指定规则验证
 $post->title=$<em>POST[&lsquo;title&rsquo;];
 $post->content=$</em>POST[&lsquo;content&rsquo;];
 $post->save();
 可以简化为
 $post->attributes=$_POST[&lsquo;Post&rsquo;];
-$post->save();</p>
+$post->save();
+&#8220;`</p>
 ]]></content>
   </entry>
   
