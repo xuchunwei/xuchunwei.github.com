@@ -13,28 +13,33 @@ yii是一个基于组件的高性能php框架，采用严格的OOP编写，非�
 <!--more-->
 
 查看环境是否支持
-
+```
 http://hostname/requirements/index.php
-
+```
 安装
+```
 cd framework
-php yiic webname ../
-注：需在 config/main.php 加 ‘timezone’ =>’Asia/singapore’
-
+php yiic webname ../   // 需在 config/main.php 加 ‘timezone’ =>’Asia/singapore’
+```
 连接DB
+```
 改config/main.php,若用mysql则去掉’db’=>array(‘connectionString’=>’mysql:host=localhost;dbname=test’,xxx),注释
-
+```
 测试连接DB
+``` 
 var_dump(Yii::app()->db)
-
+```
 配置gii
+```
 改config/main.php,去掉‘gii’=>array(‘class’=>’system.gii.GiiModule’,xxx),注释
 注：‘password’=‘xxx’,是登录gii的密码。
-
+```
 设置默认控制器
+```
 改config/main.php 加 ‘defaultController’ => ‘xxx’,
-
+```
 Yii urlManager
+```
 改config/main.php,去掉‘urlManager’=>array(xxx),注释
 ‘urlSuffix’=>’.html’,以html做为后缀
 url去掉index.php
@@ -47,17 +52,20 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . index.php
 3.apache.conf中添加AllowOverride All
 4.apache安装了rewrite模块
-
+```
+```
 $this->render(‘xxx’) 会载入layouts里的布局
 $this->renderPartial(‘xxx’) 不载入布局，也不会载入框架自带的jquery等
-
+```
 生成模型
+```
 访问 http://xxx/index.php?r=gii,点击Model Generator
-
+```
 生成CRUD代码
+```
 点击Crud Generator,Model Class中输入创建好的Model
-注：访问创建的crud，http://xxx/index.php?r={modelClassName}
-
+访问创建的crud，http://xxx/index.php?r={modelClassName}
+```
 在生产环境下删除/index.php中的 defined(‘YII_DEBUG’)ordefine(‘YII_TRACE_LEVEL’,3)
 
 要访问一个组件可 Yii::app()->{ComponentID}
@@ -65,25 +73,27 @@ $this->renderPartial(‘xxx’) 不载入布局，也不会载入框架自带的
 在/protected/controllers/xxxController.php中 accessRules()可控制用户的使用权限
 
 开启DB日志
+```
 在config/main.php 中的 ‘db’=>array() 添加 ‘enableProfiling’=>YII_DEBUG,
 ‘enableParamLogging’=>YII_DEBUG,还要在 ‘log’=>array() 添加
 array(‘class’=>’CWebLogRoute’,’levels’=>’trace’,’categories’=>’system.db.*’)
-
-yii数据库规范
+```
+yii数据库规范  
 表名和列名都小写，单词以_分割，表名使用单数名字
 
 yii DAO包含四个类
-CDbConnection 代表一个数据库连接
-CDbCommand 代表一条通过数据库执行的 SQL 语句
-CDbDataReader 代表一个只向前移动的，来自一个查询结果集中的行的流
-CDbTransaction 代表一个数据库事务
+*CDbConnection 代表一个数据库连接
+*CDbCommand 代表一条通过数据库执行的 SQL 语句
+*CDbDataReader 代表一个只向前移动的，来自一个查询结果集中的行的流
+*CDbTransaction 代表一个数据库事务
 
 执行sql语句
-$command = YII::app()->db->createCommand($sql)
+```
+$command = Yii::app()->db->createCommand($sql)
 $command->execute() 执行无查询sql
 $command->query() 执行一个sql查询
 $command->queryAll() 查询并返回结果中的所有行
-$command->queryRow() 查询并返回结果中的第一行
+$command->queryRow() 查询并返回结果中的第行
 $command->queryColumn() 查询并返回结果中的第一列
 $command->queryScalar() 查询并返回结果中第一行的第一个字段
 
@@ -91,14 +101,20 @@ $command->bindParam(‘:x’,$value,PDO::PARAM_STR/PDO::PARAM_INT)
 $command->bindValue(‘:x’,’xxx’,PDO::PARAM_STR/PDO::PARAM_INT)
 注：若配置表前缀可以在sql语句中写{{tableName}}
 
+Yii::app()->db->createCommand()->insert($tableName, array('name'=>'aa','age'=>1));  // 插入数据
+Yii:app()->slave_db->createCommand()->select('*')->from($tableNmae)->where('name="a"')->queryAll()  // 查询数据
+Yii::app()->db->createCommand()->delete($tableName, 'name="a"')  // 删除数据
+Yii::app()->db->createCommand()->update($tableName, array('name'=>'b'),'age=1')  // 更新数据
+```
 获得查询结果
+```
 $dataReader = $command->query();
 while(($row=$dataReader->read())!==false) { … } 重复调用 read() 直到它返回 false
 foreach($dataReader as $row) { … } 使用 foreach 遍历数据中的每一行
 $rows=$dataReader->readAll(); 一次性提取所有行到一个数组
-
+```
 读取记录(AR)
-
+```
 $post=Post::model()->find($condition,$params); 查找满足指定条件的结果中的第一行
 例:$posts=Post::model()->find(array(
 ‘select’=>’title’,
@@ -120,8 +136,9 @@ $posts=Post::model()->findAllBySql($sql,$params); 通过指定的SQL语句查找
 Post::model()->count($condition,$params) 获取满足指定条件的行数
 Post::model()->countBySql($sql,$params) 通过指定的 SQL 获取结果行数
 Post::model()->exists($condition,$params) 检查是否至少有一行复合指定的条件
-
+```
 更新记录
+```
 save可执行插入和更新操作，如果AR使用new创建的是插入，如果是find或findAll方法，则是更新
 如：$post = Post::model()->findByPk(10);
 $post -> title = ‘new title’;
@@ -130,15 +147,17 @@ $post -> save() //更新
 Post::model()->updateAll($attributes,$condition,$params); 更新符合指定条件的行
 Post::model()->updateByPk($pk,$attributes,$condition,$params); 更新符合指定条件和主键的行
 Post::model()->updateCounters($counters,$condition,$params); 更新满足指定条件的行的计数列
-
+```
 删除记录
+```
 $post = Post::model()->findByPk(10);
 $post -> delete();
 Post::model()->deleteAll($condition,$params); 删除符合指定条件的行
 Post::model()->deleteByPk($pk,$condition,$params); 删除符合指定条件和主键的行
 注：删除之后，AR实例仍然不变，但数据表的数据会删除
-
+```
 数据验证
+```
 当save()时自动验证，基于rules()指定规则验证
 $post->title=$_POST['title'];
 $post->content=$_POST['content'];
@@ -146,3 +165,4 @@ $post->save();
 可以简化为
 $post->attributes=$_POST['Post'];
 $post->save();
+```
