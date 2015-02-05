@@ -205,11 +205,11 @@ var _hmt = _hmt || [];
 <p>yii数据库规范<br/>
 表名和列名都小写，单词以_分割，表名使用单数名字</p>
 
-<p>yii DAO包含四个类<br/>
-*   CDbConnection 代表一个数据库连接
-*   CDbCommand 代表一条通过数据库执行的 SQL 语句
-*   CDbDataReader 代表一个只向前移动的，来自一个查询结果集中的行的流
-*   CDbTransaction 代表一个数据库事务</p>
+<p>yii DAO包含四个类
+<em>CDbConnection 代表一个数据库连接
+</em>CDbCommand 代表一条通过数据库执行的 SQL 语句
+<em>CDbDataReader 代表一个只向前移动的，来自一个查询结果集中的行的流
+</em>CDbTransaction 代表一个数据库事务</p>
 
 <p>执行sql语句</p>
 
@@ -233,7 +233,7 @@ var _hmt = _hmt || [];
 </span><span class='line'>$command-&gt;execute() 执行无查询sql
 </span><span class='line'>$command-&gt;query() 执行一个sql查询
 </span><span class='line'>$command-&gt;queryAll() 查询并返回结果中的所有行
-</span><span class='line'>$command-&gt;queryRow() 查询并返回结果中的第一行
+</span><span class='line'>$command-&gt;queryRow() 查询并返回结果中的第行
 </span><span class='line'>$command-&gt;queryColumn() 查询并返回结果中的第一列
 </span><span class='line'>$command-&gt;queryScalar() 查询并返回结果中第一行的第一个字段
 </span><span class='line'>
@@ -243,8 +243,8 @@ var _hmt = _hmt || [];
 </span><span class='line'>
 </span><span class='line'>Yii::app()-&gt;db-&gt;createCommand()-&gt;insert($tableName, array('name'=&gt;'aa','age'=&gt;1));  // 插入数据
 </span><span class='line'>Yii:app()-&gt;slave_db-&gt;createCommand()-&gt;select('*')-&gt;from($tableNmae)-&gt;where('name="a"')-&gt;queryAll()  // 查询数据
-</span><span class='line'>Yii::app()-&gt;db-&gt;createCommand()-&gt;deletc($tableName, 'name="a"')  // 删除数据
-</span><span class='line'>Yii::app()-&gt;db-&gt;createCommand()-&gt;update(array('name'=&gt;'b'),'age=1')  // 更新数据</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>Yii::app()-&gt;db-&gt;createCommand()-&gt;delete($tableName, 'name="a"')  // 删除数据
+</span><span class='line'>Yii::app()-&gt;db-&gt;createCommand()-&gt;update($tableName, array('name'=&gt;'b'),'age=1')  // 更新数据</span></code></pre></td></tr></table></div></figure>
 
 
 <p>获得查询结果</p>

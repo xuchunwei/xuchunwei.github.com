@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | 深海后花园]]></title>
   <link href="http://www.xuchunwei.com/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2015-02-05T10:48:59+08:00</updated>
+  <updated>2015-02-05T10:57:05+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -92,11 +92,11 @@ array(‘class’=&gt;’CWebLogRoute’,’levels’=&gt;’trace’,’categor
 yii数据库规范<br/>
 表名和列名都小写，单词以_分割，表名使用单数名字</p>
 
-<p>yii DAO包含四个类<br/>
-*   CDbConnection 代表一个数据库连接
-*   CDbCommand 代表一条通过数据库执行的 SQL 语句
-*   CDbDataReader 代表一个只向前移动的，来自一个查询结果集中的行的流
-*   CDbTransaction 代表一个数据库事务</p>
+<p>yii DAO包含四个类
+<em>CDbConnection 代表一个数据库连接
+</em>CDbCommand 代表一条通过数据库执行的 SQL 语句
+<em>CDbDataReader 代表一个只向前移动的，来自一个查询结果集中的行的流
+</em>CDbTransaction 代表一个数据库事务</p>
 
 <p>执行sql语句
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -179,7 +179,7 @@ yii数据库规范<br/>
 </span><span class='line'>$command-&gt;execute() 执行无查询sql
 </span><span class='line'>$command-&gt;query() 执行一个sql查询
 </span><span class='line'>$command-&gt;queryAll() 查询并返回结果中的所有行
-</span><span class='line'>$command-&gt;queryRow() 查询并返回结果中的第一行
+</span><span class='line'>$command-&gt;queryRow() 查询并返回结果中的第行
 </span><span class='line'>$command-&gt;queryColumn() 查询并返回结果中的第一列
 </span><span class='line'>$command-&gt;queryScalar() 查询并返回结果中第一行的第一个字段&lt;/p&gt;
 </span><span class='line'>
@@ -189,8 +189,8 @@ yii数据库规范<br/>
 </span><span class='line'>
 </span><span class='line'>&lt;p&gt;Yii::app()-&gt;db-&gt;createCommand()-&gt;insert($tableName, array(&lsquo;name&rsquo;=&gt;&lsquo;aa&rsquo;,&lsquo;age&rsquo;=&gt;1));  // 插入数据
 </span><span class='line'>Yii:app()-&gt;slave_db-&gt;createCommand()-&gt;select(&lsquo;*&rsquo;)-&gt;from($tableNmae)-&gt;where(&lsquo;name=&ldquo;a&rdquo;&rsquo;)-&gt;queryAll()  // 查询数据
-</span><span class='line'>Yii::app()-&gt;db-&gt;createCommand()-&gt;deletc($tableName, &lsquo;name=&ldquo;a&rdquo;&rsquo;)  // 删除数据
-</span><span class='line'>Yii::app()-&gt;db-&gt;createCommand()-&gt;update(array(&lsquo;name&rsquo;=&gt;&lsquo;b&rsquo;),&lsquo;age=1&rsquo;)  // 更新数据
+</span><span class='line'>Yii::app()-&gt;db-&gt;createCommand()-&gt;delete($tableName, &lsquo;name=&ldquo;a&rdquo;&rsquo;)  // 删除数据
+</span><span class='line'>Yii::app()-&gt;db-&gt;createCommand()-&gt;update($tableName, array(&lsquo;name&rsquo;=&gt;&lsquo;b&rsquo;),&lsquo;age=1&rsquo;)  // 更新数据
 </span><span class='line'>&lt;code&gt;
 </span><span class='line'>获得查询结果
 </span><span class='line'>&lt;/code&gt;
