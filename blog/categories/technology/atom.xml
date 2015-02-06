@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | 深海后花园]]></title>
   <link href="http://www.xuchunwei.com/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2015-02-05T10:57:05+08:00</updated>
+  <updated>2015-02-07T00:08:53+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -435,20 +435,51 @@ du -sh /var 显示var的大小</p>
 <p>unzip 解压缩zip文件<br/>
 unzip xx.zip 解压xx.zip文件。unzip -d /www xx.zip 解压xx.zip文件到www。unzip -l xx.zip 查看xx.zip包含哪些文件。-o 不询问用户覆盖原有文件。-f 更新现有文件。</p>
 
-<p>find 查找文件或目录<br/>
-find / -name xx.txt 按名字查找xx.txt。<br/>
-find / -size 1500c 查大小为1500字节的文件<br/>
-find / -size +1000c 查找大于10000btyes的文件，用减号表示小于10000字节<br/>
-find / -mmin -5 查找最后5分钟修改过的文件<br/>
-find / -mtime -1 查找最后一天修改过的文件<br/>
-find / -amin -10 查找在系统中最后10分钟访问的文件<br/>
-find / -atime -2 查找最后2天访问的文件<br/>
-find / -empty 查找为空的文件或文件夹<br/>
-find / -group cat 查找属于组cat的文件<br/>
-find / -nouser 查找属于作废用户的文件<br/>
-find / -user fred 查找fred用户的文件<br/>
-find / -cmin n 查找是n分钟改变状态的文件<br/>
-find / -false 查找总是错误的文件</p>
+<p>find 查找文件或目录
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>* 匹配任意内容，? 匹配一个字符，[]匹配任意中括号的内容&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;find / -name xx.txt 按名字查找xx.txt。find /usr/ -name &lsquo;a*&rsquo; 查找usr文件下的a开头的文件  &lt;br/&gt;
+</span><span class='line'>find / -iname xx.txt 不区分大小写查找&lt;br/&gt;
+</span><span class='line'>find / -size 10k  查大小为10kb的文件 k是小写，M是大写  &lt;br/&gt;
+</span><span class='line'>find / -size +1000c 查找大于10000btyes的文件，用减号表示小于10000字节&lt;br/&gt;
+</span><span class='line'>find . -size +20M -a -size -5k  查找大于20m并且小于50kb的文件 -o 逻辑或
+</span><span class='line'>find . -size +10M -exec ls -lh {} \;  查当前大于10mb的文件并显示大小（ls -lh）
+</span><span class='line'>find / -mmin -5 查找最后5分钟修改过的文件  &lt;br/&gt;
+</span><span class='line'>find / -mtime -1 查找一天内修改过的文件&lt;br/&gt;
+</span><span class='line'>find / -ctime +1 查找一天前改变文件属性的文件&lt;br/&gt;
+</span><span class='line'>find / -atime 1 查找一天当天文件访问的文件  &lt;br/&gt;
+</span><span class='line'>find / -amin -10 查找在系统中最后10分钟访问的文件&lt;br/&gt;
+</span><span class='line'>find / -atime -2 查找最后2天访问的文件&lt;br/&gt;
+</span><span class='line'>find / -empty 查找为空的文件或文件夹&lt;br/&gt;
+</span><span class='line'>find / -group cat 查找属于组cat的文件&lt;br/&gt;
+</span><span class='line'>find / -nouser 查找没有所有者的文件&lt;br/&gt;
+</span><span class='line'>find / -user fred 查找fred用户的文件&lt;br/&gt;
+</span><span class='line'>find / -cmin n 查找是n分钟改变状态的文件&lt;br/&gt;
+</span><span class='line'>find / -false 查找总是错误的文件&lt;br/&gt;
+</span><span class='line'>find . -inum 262422 在当前路径查找i节点为262422的文件&lt;br/&gt;</span></code></pre></td></tr></table></div></figure>
+locate 查找文件 只按文件名查
+在后台数据库查，比find快，后台库在 /var/lib/mlocate  一天一更新，updatedb可强制更新, 配置文件在 /etc/updatedb.conf</p>
 
 <p>wc[word count] 计算字数<br/>
 -c 只显示bytes数。-l 只显示列数。-w 只显示字数。</p>
@@ -489,10 +520,15 @@ userdel user 删除用户user，-r 属于user的文件也删除(最好不用)。
 
 <p>more /proc/cpuinfo 查看cpu信息</p>
 
+<p>echo $PATH  显示环境变量</p>
+
 <p>ifconfig 显示或设置网络设备</p>
 
 <p>free 显示内存状态<br/>
 -s 3 持续观察，间隔3秒。</p>
+
+<p>ln 链接
+-s 创建软链接。ln -s aaa bbb 不加s 创建硬链接，创软链接源文件和目标文件不在同目录，源文件需要是绝对路径</p>
 
 <p>df[disk free] 显示磁盘的相关信息<br/>
 -h 以可读性较高的方式来显示硬盘剩余信息。-i 显示inode(索引)信息。-</p>
