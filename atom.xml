@@ -4,7 +4,7 @@
   <title><![CDATA[深海后花园]]></title>
   <link href="http://www.xuchunwei.com/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2015-02-09T22:25:48+08:00</updated>
+  <updated>2015-02-10T14:20:05+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -111,7 +111,7 @@
 </span><span class='line'>访问创建的crud，http://xxx/index.php?r={modelClassName}</span></code></pre></td></tr></table></div></figure>
 
 
-<p>在生产环境下删除/index.php中的 defined(‘YII_DEBUG’)ordefine(‘YII_TRACE_LEVEL’,3)</p>
+<p>在生产环境下删除/index.php中的 defined(‘YII_DEBUG’) or define(‘YII_TRACE_LEVEL’,3)</p>
 
 <p>要访问一个组件可 Yii::app()->{ComponentID}</p>
 
@@ -130,11 +130,12 @@
 <p>yii数据库规范<br/>
 表名和列名都小写，单词以_分割，表名使用单数名字</p>
 
-<p>yii DAO包含四个类
-<em>CDbConnection 代表一个数据库连接
-</em>CDbCommand 代表一条通过数据库执行的 SQL 语句
-<em>CDbDataReader 代表一个只向前移动的，来自一个查询结果集中的行的流
-</em>CDbTransaction 代表一个数据库事务</p>
+<p>yii DAO包含四个类</p>
+
+<blockquote><blockquote><p>CDbConnection 代表一个数据库连接
+CDbCommand 代表一条通过数据库执行的 SQL 语句
+CDbDataReader 代表一个只向前移动的，来自一个查询结果集中的行的流
+CDbTransaction 代表一个数据库事务</p></blockquote></blockquote>
 
 <p>执行sql语句</p>
 
