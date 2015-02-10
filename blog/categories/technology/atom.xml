@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | 深海后花园]]></title>
   <link href="http://www.xuchunwei.com/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2015-02-10T14:40:26+08:00</updated>
+  <updated>2015-02-10T14:43:03+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -580,9 +580,9 @@ exit
 shell使用的三种引号:</p>
 
 <ul>
-<li><p>双引号” 在双引号除 $,”,’和\以外的特殊字符的特殊意义都解释成字符本身。</p></li>
-<li><p>单引号&#8217; 纯字符，所有特殊字符都将失去意义</p></li>
-<li><p>反引号` 反引号中的字符被解释成命令</p></li>
+<li>双引号” 在双引号除 $,”,’和\以外的特殊字符的特殊意义都解释成字符本身。</li>
+<li>单引号&#8217; 纯字符，所有特殊字符都将失去意义</li>
+<li>反引号` 反引号中的字符被解释成命令</li>
 </ul>
 
 
