@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | 深海后花园]]></title>
   <link href="http://www.xuchunwei.com/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2015-02-10T14:43:03+08:00</updated>
+  <updated>2015-02-27T23:16:22+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -417,10 +417,18 @@ chown oracle:net /home/u1 表示改变目录所有者为oracle账户和组net -R
 <p>chgrp[change group] 变更文件或目录的所属群组<br/>
 chgrp dba /home/u1 改变/home/u1目录为dba所有 -R 递归处理，将指定目录下的所有文件及子目录一并处理</p>
 
-<p>tar[tape archive] 备份文件<br/>
-tar -cvf xx.tar xx.txt/xx 备份xx.txt文件或xx目录。tar -xvf xx.tar /var/www/ 解备份xx.tar文件至/var/www/。tar -rf xx.tar xx.txt 增加备份xx.txt文件。tar -tf xx.tar 查看xx.tar里文件。tar -tf 1.tar | grep 1.txt 查打1.tar中的1.txt文件 去掉txt则查找1文件。tar –exclude a -cf xx.tar * 备份当前目录所有的文件除了a文件夹</p>
-
-<p>du[disk usage] 显示目录或文件的大小<br/>
+<p>tar[tape archive] 打包文件<br/>
+<code>
+tar -cvf xx.tar xx.txt/xx 打包xx.txt文件或xx目录。
+tar -xvf xx.tar /var/www/ 解包xx.tar文件至/var/www/
+tar -rf xx.tar xx.txt 增加备份xx.txt文件
+tar -tf xx.tar 查看xx.tar里文件
+tar -tf 1.tar | grep 1.txt 查找1.tar中的1.txt文件 去掉txt则查找1文件
+tar -exclude a -cf xx.tar * 打包当前目录所有的文件除了a文件夹
+tar -zcvf xx.tar.gz xx  打包并压缩xx为gz文件，-zxvf 解压
+tar -jcvf xx.tar.bz2 xx  打包并压缩xx为bz2文件，-jxvf 解压
+</code>
+du[disk usage] 显示目录或文件的大小<br/>
 du -sh /var 显示var的大小</p>
 
 <p>pwd[print working directory] 显示工作目录</p>
@@ -433,8 +441,18 @@ du -sh /var 显示var的大小</p>
 <p>man 查看命令帮助信息<br/>
 按q退出</p>
 
+<p>zip aa.zip aa  压缩aa文件为aa.zip，-r 压缩目录</p>
+
 <p>unzip 解压缩zip文件<br/>
 unzip xx.zip 解压xx.zip文件。unzip -d /www xx.zip 解压xx.zip文件到www。unzip -l xx.zip 查看xx.zip包含哪些文件。-o 不询问用户覆盖原有文件。-f 更新现有文件。</p>
+
+<p>gzip aa  压缩aa文件为 aa.gz, 压缩完成后，源文件aa会消失，-r 压缩目录下所有子目, -d 解压缩文件</p>
+
+<p>gunzip aa.gz 解压缩</p>
+
+<p>bzip2 aa 压缩aa文件为 aa.bz2，-k 保留源文件aa, -d 解压缩</p>
+
+<p>bunzip2 aa.bz2 解压缩 -k 保留源文件</p>
 
 <p>find 查找文件或目录
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -541,7 +559,7 @@ userdel user 删除用户user，-r 属于user的文件也删除(最好不用)。
 <p>sync 将内存缓冲区内的数据写入磁盘</p>
 
 <p>shutdown 系统关机指令<br/>
-shutdown -h new 将系统关机。-k 只是送出信息给所有用户，但不会实际关机。-r shutdown之后重新启动。shutdown -r +10 十分钟后重启。shutdown -h 10:00 十点钟重启</p>
+shutdown -h new 将系统关机。-k 只是送出信息给所有用户，但不会实际关机。-r shutdown之后重新启动。shutdown -r +10 十分钟后重启。shutdown -h 10:00 十点钟重启. -c 取消前一个关机命令</p>
 
 <p>reboot 重启</p>
 
