@@ -87,9 +87,17 @@ chown oracle:net /home/u1 表示改变目录所有者为oracle账户和组net -R
 chgrp[change group] 变更文件或目录的所属群组  
 chgrp dba /home/u1 改变/home/u1目录为dba所有 -R 递归处理，将指定目录下的所有文件及子目录一并处理
 
-tar[tape archive] 备份文件  
-tar -cvf xx.tar xx.txt/xx 备份xx.txt文件或xx目录。tar -xvf xx.tar /var/www/ 解备份xx.tar文件至/var/www/。tar -rf xx.tar xx.txt 增加备份xx.txt文件。tar -tf xx.tar 查看xx.tar里文件。tar -tf 1.tar | grep 1.txt 查打1.tar中的1.txt文件 去掉txt则查找1文件。tar –exclude a -cf xx.tar * 备份当前目录所有的文件除了a文件夹
-
+tar[tape archive] 打包文件  
+```
+tar -cvf xx.tar xx.txt/xx 打包xx.txt文件或xx目录。
+tar -xvf xx.tar /var/www/ 解包xx.tar文件至/var/www/
+tar -rf xx.tar xx.txt 增加备份xx.txt文件
+tar -tf xx.tar 查看xx.tar里文件
+tar -tf 1.tar | grep 1.txt 查找1.tar中的1.txt文件 去掉txt则查找1文件
+tar -exclude a -cf xx.tar * 打包当前目录所有的文件除了a文件夹
+tar -zcvf xx.tar.gz xx  打包并压缩xx为gz文件，-zxvf 解压
+tar -jcvf xx.tar.bz2 xx  打包并压缩xx为bz2文件，-jxvf 解压
+```
 du[disk usage] 显示目录或文件的大小  
 du -sh /var 显示var的大小
 
@@ -103,8 +111,18 @@ mount 加载文件系统
 man 查看命令帮助信息  
 按q退出
 
+zip aa.zip aa  压缩aa文件为aa.zip，-r 压缩目录
+
 unzip 解压缩zip文件  
 unzip xx.zip 解压xx.zip文件。unzip -d /www xx.zip 解压xx.zip文件到www。unzip -l xx.zip 查看xx.zip包含哪些文件。-o 不询问用户覆盖原有文件。-f 更新现有文件。
+
+gzip aa  压缩aa文件为 aa.gz, 压缩完成后，源文件aa会消失，-r 压缩目录下所有子目, -d 解压缩文件
+
+gunzip aa.gz 解压缩
+
+bzip2 aa 压缩aa文件为 aa.bz2，-k 保留源文件aa, -d 解压缩
+
+bunzip2 aa.bz2 解压缩 -k 保留源文件
 
 find 查找文件或目录
 ```
@@ -192,7 +210,7 @@ startx[start X Window] 启动X Window
 sync 将内存缓冲区内的数据写入磁盘
 
 shutdown 系统关机指令  
-shutdown -h new 将系统关机。-k 只是送出信息给所有用户，但不会实际关机。-r shutdown之后重新启动。shutdown -r +10 十分钟后重启。shutdown -h 10:00 十点钟重启
+shutdown -h new 将系统关机。-k 只是送出信息给所有用户，但不会实际关机。-r shutdown之后重新启动。shutdown -r +10 十分钟后重启。shutdown -h 10:00 十点钟重启. -c 取消前一个关机命令
 
 reboot 重启
 
