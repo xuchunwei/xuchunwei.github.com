@@ -108,6 +108,9 @@ id 显示用户的ID，以及所属群组的ID
 mount 加载文件系统  
 -r 以只读的模式载入设备 -w 以可读写模式载入设备 mount /dev/hda5/ /mnt 把hda5加载到/mnt
 
+umount 卸载文件系统  
+umount 设备文件名或挂载点 卸载时需要退出挂载点所在路径
+
 man 查看命令帮助信息  
 按q退出
 
@@ -171,6 +174,10 @@ userdel user 删除用户user，-r 属于user的文件也删除(最好不用)。
 who 显示目前登入系统的用户信息  
 
 w 显示目前登入系统的用户信息
+
+last 显示当前和过去登录的用户信息
+
+lastlog 显示所有用户最后一次的登录
 
 groupadd 增加用户组
 
