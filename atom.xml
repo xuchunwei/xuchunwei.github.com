@@ -4,7 +4,7 @@
   <title><![CDATA[深海后花园]]></title>
   <link href="http://www.xuchunwei.com/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2015-03-02T00:04:32+08:00</updated>
+  <updated>2015-03-04T00:56:38+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -598,7 +598,8 @@ unzip xx.zip 解压xx.zip文件。unzip -d /www xx.zip 解压xx.zip文件到www�
 在后台数据库查，比find快，后台库在 /var/lib/mlocate  一天一更新，updatedb可强制更新, 配置文件在 /etc/updatedb.conf</p>
 
 <p>wc[word count] 计算字数<br/>
--c 只显示bytes数。-l 只显示列数。-w 只显示字数。</p>
+-c 只显示bytes数。-l 只显示列数。-w 只显示字数。<br/>
+wc &lt; test.php  统计php文件</p>
 
 <p>useradd 新增用户帐号<br/>
 -u 直接给出用户id。-g 给出用户组。-d 将根目录建立在已存在目录上。-s 定义shell 。useradd -d /home/weixiaohong -g www-data -s /bin/sh username</p>
@@ -619,6 +620,12 @@ userdel user 删除用户user，-r 属于user的文件也删除(最好不用)。
 <p>last 显示当前和过去登录的用户信息</p>
 
 <p>lastlog 显示所有用户最后一次的登录</p>
+
+<p>alias 显示命令别名  alias vi=&lsquo;vim&rsquo; 设置vim命令别名为vi(临时生效)</p>
+
+<p>unalias vi 临时删除别名vi</p>
+
+<p>vi ~/bashrc  设置别名永久生效</p>
 
 <p>groupadd 增加用户组</p>
 
@@ -643,6 +650,8 @@ userdel user 删除用户user，-r 属于user的文件也删除(最好不用)。
 <p>echo $PATH  显示环境变量</p>
 
 <p>ifconfig 显示或设置网络设备</p>
+
+<p>netstat -an 显示当前网络连接</p>
 
 <p>free 显示内存状态<br/>
 -s 3 持续观察，间隔3秒。</p>
@@ -708,9 +717,13 @@ shutdown -h new 将系统关机。-k 只是送出信息给所有用户，但不�
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>？表示任意的单个字符
 </span><span class='line'>* 表示任意长的任意字符串
-</span><span class='line'>[] 表示匹配放在[]中的字符集中的单个字符</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>[] 表示匹配放在[]中的字符集中的单个字符
+</span><span class='line'>[-] 匹配范转 如 [a-z]
+</span><span class='line'>[^] 匹配不是括号内的字符</span></code></pre></td></tr></table></div></figure>
 
 
 <p>shell使用的三种引号:</p>
@@ -723,16 +736,22 @@ shutdown -h new 将系统关机。-k 只是送出信息给所有用户，但不�
 
 
 <p>输入重定向<br/>
-格式：命令 &lt; 数据文件 输出重定向 格式：命令 > 数据文件</p>
+格式：命令 &lt; 数据文件</p>
+
+<p>输出重定向
+格式：命令 > 数据文件</p>
 
 <p>例：cat file1 file2 > file.txt<br/>
 在文件名和’>’之间要放一个空格，数据文件不论原先是否存在，都是将命令的输出覆盖上去。</p>
 
 <p>命令 >> 数据文件<br/>
-是输出追加符，若数据文件已存在，则添加到文件尾部，否则建立新的。</p>
+是输出追加符，若数据文件已存在，则添加到文件尾部，否则建立新的。
+命令 >> 文件 2>&amp;1 或者 命令 &amp;>>文件 命令执行的正确结果和错误都写入文件<br/>
+命令 >> 文件1 2>>文件2  把正确的输出追加到文件1，错误输出追加到文件2</p>
 
-<p>管道操作符 &lsquo;|&rsquo; 是把一条命令的标准输出和另一条命令的标准输入相连的操作<br/>
-同一命令行用&#8217;;&lsquo;隔开，分号前后命令无因果关系<br/>
+<p>管道操作符<br/>
+命令1 | 命令2  命令1的正确输出作为命令2的操作对象<br/>
+;  连接多个命令，分号前后命令无因果关系<br/>
 &amp;&amp; 连接两个命令，前一个成功后一个执行<br/>
 || 连接两个命令，前一个不成功后一个执行</p>
 
@@ -807,6 +826,19 @@ mysql的启动和停止命令 /etc/init.d/mysql start|restart|stop<br/>
 vsftpd的配置文件 /etc/init.d/vsftpd start|restart|stop</p>
 
 <p>mysql数据库文件存在/var/lib/mysql</p></blockquote>
+
+<h2>shell快捷键</h2>
+
+<ul>
+<li>ctrl + c  强制终止当前命令</li>
+<li>ctrl + l  清屏</li>
+<li>ctrl + a  光标移至行首</li>
+<li>ctrl + e  光标移至行尾</li>
+<li>ctrl + u  从光标所在位置删除到行首</li>
+<li>ctrl + z  把命令放入后台</li>
+<li>ctrl + r  在历史命令中搜索</li>
+</ul>
+
 ]]></content>
   </entry>
   
