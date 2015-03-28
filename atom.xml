@@ -4,7 +4,7 @@
   <title><![CDATA[深海后花园]]></title>
   <link href="http://www.xuchunwei.com/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2015-03-28T15:01:41+08:00</updated>
+  <updated>2015-03-28T17:38:33+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -409,6 +409,9 @@ CDbTransaction 代表一个数据库事务</p></blockquote>
 <h2>vi</h2>
 
 <p>vi + file 打开file文件光标定位至最后一行<br/>
+vi +4 file 打开并定位到第四行<br/>
+vi +/word file 打开并定位到第一个word所在的行
+vi a b c 打开a b c文件底部命令n切换下个文件，N切换上个文件  <br/>
 按<code>h</code> <code>j</code> <code>k</code> <code>l</code>光标移动为 左，下，上，右 <br/>
 <code>ctrl+f</code> 向前移动一页 <br/>
 <code>ctrl+b</code> 向后移动一页 <br/>
@@ -417,7 +420,7 @@ CDbTransaction 代表一个数据库事务</p></blockquote>
 <code>+</code> 向下移动一行<br/>
 <code>-</code> 向上移动一行</p>
 
-<p><code>/word</code> 光标后查找word字符串<br/>
+<p><code>/word</code> 光标后查找word字符串 按n查找下一个  <br/>
 <code>?word</code> 光标前查找word字符串</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -450,12 +453,16 @@ CDbTransaction 代表一个数据库事务</p></blockquote>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>:w fileName # 保存为fileName(3,7 w file 将3到7行的内容存为file)
 </span><span class='line'>:r fileName # 将fileName加到光标所在行后面
 </span><span class='line'>:wq # 存盘并退出(wx 亦可)
 </span><span class='line'>:w! # 若为只读属性，则强制写入
 </span><span class='line'>:e! # 还原至原始状态
 </span><span class='line'>:q! # 不存盘退出
+</span><span class='line'>:ls # 列出所有打开的文件
+</span><span class='line'>:15 # 光杆定位至15行
 </span><span class='line'>:set nu # 显示行号
 </span><span class='line'>:set nonu # 取消行号</span></code></pre></td></tr></table></div></figure>
 
@@ -606,10 +613,11 @@ wc &lt; test.php  统计php文件</p>
 -u 直接给出用户id。-g 给出用户组。-d 将根目录建立在已存在目录上。-s 定义shell 。useradd -d /home/weixiaohong -g www-data -s /bin/sh username</p>
 
 <p>passwd 设置密码<br/>
-新增用户后，要设置密码，否则不能用。-d 使用户无密码</p>
+新增用户后，要设置密码，否则不能用。-d 使用户无密码 -l 锁定用户 -u 解锁用户</p>
 
 <p>usermod 修改用户<br/>
-usermod -l newuser olduser 修改用户名olduser为newuser</p>
+usermod -l newuser olduser 修改用户名olduser为newuser<br/>
+usermod -d /home/aa aa   修改用用户名aa目录为/home/aa</p>
 
 <p>userdel 删除用户<br/>
 userdel user 删除用户user，-r 属于user的文件也删除(最好不用)。-f 删除用户登入目录以及目录中所有文件</p>
@@ -628,12 +636,15 @@ userdel user 删除用户user，-r 属于user的文件也删除(最好不用)。
 
 <p>vi ~/bashrc  设置别名永久生效</p>
 
-<p>groupadd 增加用户组</p>
+<p>groupadd 增加用户组
+groupadd -g 888 gname  创建编号为888的gname组</p>
 
 <p>groupmod 修改用户组<br/>
--n newgroup oldgroup</p>
+-n newgroup oldgroup 更改组名 -g 666 gname 修改gname组编号为666</p>
 
 <p>groupdel 删除用户组</p>
+
+<p>gpasswd -a aa othergroup  为用户aa添加附属组othergroup -d 删除用户附属组</p>
 
 <p>newgrp 登入另一个群组<br/>
 如果当前用户属于多个群组，可以切换到另个群组。</p>
