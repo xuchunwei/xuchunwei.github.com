@@ -4,7 +4,7 @@
   <title><![CDATA[深海后花园]]></title>
   <link href="http://www.xuchunwei.com/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2015-03-04T00:56:38+08:00</updated>
+  <updated>2015-03-28T15:01:41+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -408,7 +408,8 @@ CDbTransaction 代表一个数据库事务</p></blockquote>
 
 <h2>vi</h2>
 
-<p>按<code>h</code> <code>j</code> <code>k</code> <code>l</code>光标移动为 左，下，上，右 <br/>
+<p>vi + file 打开file文件光标定位至最后一行<br/>
+按<code>h</code> <code>j</code> <code>k</code> <code>l</code>光标移动为 左，下，上，右 <br/>
 <code>ctrl+f</code> 向前移动一页 <br/>
 <code>ctrl+b</code> 向后移动一页 <br/>
 <code>ctrl+d</code> 向前移动半页 <br/>
