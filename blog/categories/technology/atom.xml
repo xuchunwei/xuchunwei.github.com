@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | 深海后花园]]></title>
   <link href="http://www.xuchunwei.com/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2015-03-28T17:38:33+08:00</updated>
+  <updated>2015-03-29T21:57:07+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -579,6 +579,8 @@ groupadd -g 888 gname  创建编号为888的gname组</p>
 
 <p>df[disk free] 显示磁盘的相关信息<br/>
 -h 以可读性较高的方式来显示硬盘剩余信息。-i 显示inode(索引)信息。-</p>
+
+<p>tail -f filename 监视filename的尾部内容(默认10行) -n 20 最后20行，-n +20 前20行</p>
 
 <p>startx[start X Window] 启动X Window</p>
 
