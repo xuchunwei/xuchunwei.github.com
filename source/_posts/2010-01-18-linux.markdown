@@ -230,6 +230,8 @@ ln 链接
 df[disk free] 显示磁盘的相关信息  
 -h 以可读性较高的方式来显示硬盘剩余信息。-i 显示inode(索引)信息。-
 
+tail -f filename 监视filename的尾部内容(默认10行) -n 20 最后20行，-n +20 前20行
+
 startx[start X Window] 启动X Window
 
 sync 将内存缓冲区内的数据写入磁盘
