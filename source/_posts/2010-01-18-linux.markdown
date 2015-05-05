@@ -237,7 +237,7 @@ startx[start X Window] 启动X Window
 sync 将内存缓冲区内的数据写入磁盘
 
 shutdown 系统关机指令  
-shutdown -h new 将系统关机。-k 只是送出信息给所有用户，但不会实际关机。-r shutdown之后重新启动。shutdown -r +10 十分钟后重启。shutdown -h 10:00 十点钟重启. -c 取消前一个关机命令
+shutdown -h now 将系统关机。-k 只是送出信息给所有用户，但不会实际关机。-r shutdown之后重新启动。shutdown -r +10 十分钟后重启。shutdown -h 10:00 十点钟重启. -c 取消前一个关机命令
 
 reboot 重启
 
