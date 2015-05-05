@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | 深海后花园]]></title>
   <link href="http://www.xuchunwei.com/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2015-03-29T21:57:07+08:00</updated>
+  <updated>2015-05-05T14:44:42+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -587,7 +587,7 @@ groupadd -g 888 gname  创建编号为888的gname组</p>
 <p>sync 将内存缓冲区内的数据写入磁盘</p>
 
 <p>shutdown 系统关机指令<br/>
-shutdown -h new 将系统关机。-k 只是送出信息给所有用户，但不会实际关机。-r shutdown之后重新启动。shutdown -r +10 十分钟后重启。shutdown -h 10:00 十点钟重启. -c 取消前一个关机命令</p>
+shutdown -h now 将系统关机。-k 只是送出信息给所有用户，但不会实际关机。-r shutdown之后重新启动。shutdown -r +10 十分钟后重启。shutdown -h 10:00 十点钟重启. -c 取消前一个关机命令</p>
 
 <p>reboot 重启</p>
 
