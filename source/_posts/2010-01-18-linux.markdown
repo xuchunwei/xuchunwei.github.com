@@ -160,6 +160,8 @@ find / -user fred 查找fred用户的文件
 find / -cmin n 查找是n分钟改变状态的文件  
 find / -false 查找总是错误的文件  
 find . -inum 262422 在当前路径查找i节点为262422的文件  
+find . -type f  只查找文件
+find . -type d  只查找目录
 ```
 grep 搜索字符串，grep -i 'aaa' test.php 在test.php文件中查找 aaa 字符串 -i 不区分大小写，-v 排除指定字符串
 
