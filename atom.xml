@@ -4,7 +4,7 @@
   <title><![CDATA[深海后花园]]></title>
   <link href="http://www.xuchunwei.com/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2015-06-22T01:34:10+08:00</updated>
+  <updated>2015-06-23T15:02:31+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -582,6 +582,8 @@ unzip xx.zip 解压xx.zip文件。unzip -d /www xx.zip 解压xx.zip文件到www�
 <span class='line-number'>19</span>
 <span class='line-number'>20</span>
 <span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>* 匹配任意内容，? 匹配一个字符，[]匹配任意中括号的内容
 </span><span class='line'>
 </span><span class='line'>find / -name xx.txt 按名字查找xx.txt。find /usr/ -name 'a*' 查找usr文件下的a开头的文件    
@@ -602,7 +604,9 @@ unzip xx.zip 解压xx.zip文件。unzip -d /www xx.zip 解压xx.zip文件到www�
 </span><span class='line'>find / -user fred 查找fred用户的文件  
 </span><span class='line'>find / -cmin n 查找是n分钟改变状态的文件  
 </span><span class='line'>find / -false 查找总是错误的文件  
-</span><span class='line'>find . -inum 262422 在当前路径查找i节点为262422的文件  </span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>find . -inum 262422 在当前路径查找i节点为262422的文件  
+</span><span class='line'>find . -type f  只查找文件
+</span><span class='line'>find . -type d  只查找目录</span></code></pre></td></tr></table></div></figure>
 
 
 <p>grep 搜索字符串，grep -i &lsquo;aaa&rsquo; test.php 在test.php文件中查找 aaa 字符串 -i 不区分大小写，-v 排除指定字符串</p>
