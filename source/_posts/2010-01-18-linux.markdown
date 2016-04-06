@@ -357,6 +357,11 @@ sudo apt-get install unzip
 >vsftpd的配置文件 /etc/init.d/vsftpd start|restart|stop  
 
 >mysql数据库文件存在/var/lib/mysql  
+```
+crontab
+>sudo vim /etc/crontab
+>* */1 * * * root php /home/xuchunwei/test.php 每分钟运行test.php(注意test.php权限)
+>sudo /etc/init.d/cron restart
 
 ##shell快捷键
 * ctrl + c  强制终止当前命令
