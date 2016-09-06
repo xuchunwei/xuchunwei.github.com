@@ -1,0 +1,484 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Yii随笔 - 深海后花园</title>
+  <meta name="author" content="徐春伟">
+
+  
+  <meta name="description" content="yii">
+  <meta name="keywords" content="yii">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.xuchunwei.com/blog/20140127/yii">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="深海后花园" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--baidu-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?041e7bf8d2c5a85220725d2b85994254";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">深海后花园</a></h1>
+  
+    <h2>有山 有水 有花 有草 有你 还有我</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="www.xuchunwei.com">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog/archives">Blog</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Yii随笔</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-01-27T23:06:45+08:00'><span class='date'>2014-01-27</span> <span class='time'>11:06 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>yii是一个基于组件的高性能php框架，采用严格的OOP编写，非常易于学习和使用。最让我欣赏的是开发速度非常快。</p>
+
+<!--more-->
+
+
+<p>查看环境是否支持</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>http://hostname/requirements/index.php</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安装</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd framework
+</span><span class='line'>php yiic webname ../   // 需在 config/main.php 加 ‘timezone’ =&gt;’Asia/singapore’</span></code></pre></td></tr></table></div></figure>
+
+
+<p>连接DB</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>改config/main.php,若用mysql则去掉’db’=&gt;array(‘connectionString’=&gt;’mysql:host=localhost;dbname=test’,xxx),注释</span></code></pre></td></tr></table></div></figure>
+
+
+<p>测试连接DB</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var_dump(Yii::app()-&gt;db)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>配置gii</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>改config/main.php,去掉‘gii’=&gt;array(‘class’=&gt;’system.gii.GiiModule’,xxx),注释
+</span><span class='line'>注：‘password’=‘xxx’,是登录gii的密码。</span></code></pre></td></tr></table></div></figure>
+
+
+<p>设置默认控制器</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>改config/main.php 加 ‘defaultController’ =&gt; ‘xxx’,</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Yii urlManager</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>改config/main.php,去掉‘urlManager’=&gt;array(xxx),注释
+</span><span class='line'>‘urlSuffix’=&gt;’.html’,以html做为后缀
+</span><span class='line'>url去掉index.php
+</span><span class='line'>1.添加 ‘showScriptName’=&gt;false,
+</span><span class='line'>2.在网站根目录添加.htaccess文件
+</span><span class='line'>options +FollowSymLinks
+</span><span class='line'>RewriteEngine on
+</span><span class='line'>RewriteCond %{REQUEST_FILENAME} !-f
+</span><span class='line'>RewriteCond %{REQUEST_FILENAME} !-d
+</span><span class='line'>RewriteRule . index.php
+</span><span class='line'>3.apache.conf中添加AllowOverride All
+</span><span class='line'>4.apache安装了rewrite模块</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$this-&gt;render(‘xxx’) 会载入layouts里的布局
+</span><span class='line'>$this-&gt;renderPartial(‘xxx’) 不载入布局，也不会载入框架自带的jquery等</span></code></pre></td></tr></table></div></figure>
+
+
+<p>生成模型</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>访问 http://xxx/index.php?r=gii,点击Model Generator</span></code></pre></td></tr></table></div></figure>
+
+
+<p>生成CRUD代码</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>点击Crud Generator,Model Class中输入创建好的Model
+</span><span class='line'>访问创建的crud，http://xxx/index.php?r={modelClassName}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在生产环境下删除/index.php中的 defined(‘YII_DEBUG’) or define(‘YII_TRACE_LEVEL’,3)</p>
+
+<p>要访问一个组件可 Yii::app()->{ComponentID}</p>
+
+<p>在/protected/controllers/xxxController.php中 accessRules()可控制用户的使用权限</p>
+
+<p>开启DB日志</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>在config/main.php 中的 ‘db’=&gt;array() 添加 ‘enableProfiling’=&gt;YII_DEBUG,
+</span><span class='line'>‘enableParamLogging’=&gt;YII_DEBUG,还要在 ‘log’=&gt;array() 添加
+</span><span class='line'>array(‘class’=&gt;’CWebLogRoute’,’levels’=&gt;’trace’,’categories’=&gt;’system.db.*’)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>yii数据库规范<br/>
+表名和列名都小写，单词以_分割，表名使用单数名字</p>
+
+<p>yii DAO包含四个类</p>
+
+<blockquote><p>CDbConnection 代表一个数据库连接<br/>
+CDbCommand 代表一条通过数据库执行的 SQL 语句<br/>
+CDbDataReader 代表一个只向前移动的，来自一个查询结果集中的行的流<br/>
+CDbTransaction 代表一个数据库事务</p></blockquote>
+
+<p>执行sql语句</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$command = Yii::app()-&gt;db-&gt;createCommand($sql)
+</span><span class='line'>$command-&gt;execute() 执行无查询sql
+</span><span class='line'>$command-&gt;query() 执行一个sql查询
+</span><span class='line'>$command-&gt;queryAll() 查询并返回结果中的所有行
+</span><span class='line'>$command-&gt;queryRow() 查询并返回结果中的第行
+</span><span class='line'>$command-&gt;queryColumn() 查询并返回结果中的第一列
+</span><span class='line'>$command-&gt;queryScalar() 查询并返回结果中第一行的第一个字段
+</span><span class='line'>
+</span><span class='line'>$command-&gt;bindParam(‘:x’,$value,PDO::PARAM_STR/PDO::PARAM_INT)
+</span><span class='line'>$command-&gt;bindValue(‘:x’,’xxx’,PDO::PARAM_STR/PDO::PARAM_INT)
+</span><span class='line'>注：若配置表前缀可以在sql语句中写
+</span><span class='line'>
+</span><span class='line'>Yii::app()-&gt;db-&gt;createCommand()-&gt;insert($tableName, array('name'=&gt;'aa','age'=&gt;1));  // 插入数据
+</span><span class='line'>Yii:app()-&gt;slave_db-&gt;createCommand()-&gt;select('*')-&gt;from($tableNmae)-&gt;where('name="a"')-&gt;queryAll()  // 查询数据
+</span><span class='line'>Yii::app()-&gt;db-&gt;createCommand()-&gt;delete($tableName, 'name="a"')  // 删除数据
+</span><span class='line'>Yii::app()-&gt;db-&gt;createCommand()-&gt;update($tableName, array('name'=&gt;'b'),'age=1')  // 更新数据</span></code></pre></td></tr></table></div></figure>
+
+
+<p>获得查询结果</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$dataReader = $command-&gt;query();
+</span><span class='line'>while(($row=$dataReader-&gt;read())!==false) { … } 重复调用 read() 直到它返回 false
+</span><span class='line'>foreach($dataReader as $row) { … } 使用 foreach 遍历数据中的每一行
+</span><span class='line'>$rows=$dataReader-&gt;readAll(); 一次性提取所有行到一个数组</span></code></pre></td></tr></table></div></figure>
+
+
+<p>读取记录(AR)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$post=Post::model()-&gt;find($condition,$params); 查找满足指定条件的结果中的第一行
+</span><span class='line'>例:$posts=Post::model()-&gt;find(array(
+</span><span class='line'>‘select’=&gt;’title’,
+</span><span class='line'>‘condition’=&gt;’postID=:postID’,
+</span><span class='line'>‘params’=&gt;array(‘:postID’=&gt;10),
+</span><span class='line'>))
+</span><span class='line'>$posts=Post::model()-&gt;find(‘id=:id’,array(‘:id’=&gt;$id))
+</span><span class='line'>$post=Post::model()-&gt;findByPk($postID,$condition,$params); 查找具有指定主键值的那一行
+</span><span class='line'>$post=Post::model()-&gt;findByAttributes($attributes,$condition,$params); 查找具有指定属性值的行
+</span><span class='line'>例:$post=Post::model()-&gt;findByAttributes(array(‘name’=&gt;$name))
+</span><span class='line'>$post=Post::model()-&gt;findBySql($sql,$params); 通过指定的 SQL 语句查找结果中的第一行
+</span><span class='line'>
+</span><span class='line'>$posts=Post::model()-&gt;findAll($condition,$params); 查找满足指定条件的所有行
+</span><span class='line'>$posts=Post::model()-&gt;findAllByPk($postIDs,$condition,$params); 查找带有指定主键的所有行
+</span><span class='line'>$posts=Post::model()-&gt;findAllByAttributes($attributes,$condition,$params); 查找带有指定属性值的所有行
+</span><span class='line'>$posts=Post::model()-&gt;findAllBySql($sql,$params); 通过指定的SQL语句查找所有行
+</span><span class='line'>注：如果没有任何东西符合查询条件，findAll 将返回一个空数组。find 会在没有找到什么东西时返回 null
+</span><span class='line'>
+</span><span class='line'>Post::model()-&gt;count($condition,$params) 获取满足指定条件的行数
+</span><span class='line'>Post::model()-&gt;countBySql($sql,$params) 通过指定的 SQL 获取结果行数
+</span><span class='line'>Post::model()-&gt;exists($condition,$params) 检查是否至少有一行复合指定的条件</span></code></pre></td></tr></table></div></figure>
+
+
+<p>更新记录</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>save可执行插入和更新操作，如果AR使用new创建的是插入，如果是find或findAll方法，则是更新
+</span><span class='line'>如：$post = Post::model()-&gt;findByPk(10);
+</span><span class='line'>$post -&gt; title = ‘new title’;
+</span><span class='line'>$post -&gt; save() //更新
+</span><span class='line'>
+</span><span class='line'>Post::model()-&gt;updateAll($attributes,$condition,$params); 更新符合指定条件的行
+</span><span class='line'>Post::model()-&gt;updateByPk($pk,$attributes,$condition,$params); 更新符合指定条件和主键的行
+</span><span class='line'>Post::model()-&gt;updateCounters($counters,$condition,$params); 更新满足指定条件的行的计数列</span></code></pre></td></tr></table></div></figure>
+
+
+<p>删除记录</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$post = Post::model()-&gt;findByPk(10);
+</span><span class='line'>$post -&gt; delete();
+</span><span class='line'>Post::model()-&gt;deleteAll($condition,$params); 删除符合指定条件的行
+</span><span class='line'>Post::model()-&gt;deleteByPk($pk,$condition,$params); 删除符合指定条件和主键的行
+</span><span class='line'>注：删除之后，AR实例仍然不变，但数据表的数据会删除</span></code></pre></td></tr></table></div></figure>
+
+
+<p>数据验证</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>当save()时自动验证，基于rules()指定规则验证
+</span><span class='line'>$post-&gt;title=$_POST['title'];
+</span><span class='line'>$post-&gt;content=$_POST['content'];
+</span><span class='line'>$post-&gt;save();
+</span><span class='line'>可以简化为
+</span><span class='line'>$post-&gt;attributes=$_POST['Post'];
+</span><span class='line'>$post-&gt;save();</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">徐春伟</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2014-01-27T23:06:45+08:00'><span class='date'>2014-01-27</span> <span class='time'>11:06 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/technology/'>technology</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+	
+  
+	<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+	<span class="jiathis_txt">分享到：</span>
+	<a class="jiathis_button_tsina">新浪微博</a>
+	<a class="jiathis_button_weixin">微信</a>
+	<a class="jiathis_button_douban">豆瓣</a>
+	<a class="jiathis_button_renren">人人网</a>
+	<a href="http://www.jiathis.com/share?uid=2001153" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=2001153" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+<!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2001153"></script>
+<!-- UY END -->
+
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/20100119/mysql/" title="Previous Post: mysql随笔">&laquo; mysql随笔</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p><br/>纯码农<br/>半屌丝<br/>零文艺</p>
+  <p>生于河南<br/>漂在帝都</p>
+  <p>用灵巧之手<br/>成神奇之码</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/20140127/yii/">Yii随笔</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/20100119/mysql/">Mysql随笔</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/20100118/linux/">Linux随笔</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - 徐春伟 
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
