@@ -109,8 +109,8 @@ tar -zcvf xx.tar.gz xx  打包并压缩xx为gz文件，-zxvf 解压
 tar -jcvf xx.tar.bz2 xx  打包并压缩xx为bz2文件，-jxvf 解压
 ```
 du[disk usage] 显示目录或文件的大小  
-du -sh /var 显示var的大小
-du -sh * 显示当前所有文件夹的大小
+du -sh /var 显示var的大小  
+du -sh * 显示当前所有文件夹的大小  
 
 pwd[print working directory] 显示工作目录
 
