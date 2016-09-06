@@ -1,0 +1,878 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[深海后花园]]></title>
+  <link href="http://www.xuchunwei.com/atom.xml" rel="self"/>
+  <link href="http://www.xuchunwei.com/"/>
+  <updated>2016-07-01T12:57:23+08:00</updated>
+  <id>http://www.xuchunwei.com/</id>
+  <author>
+    <name><![CDATA[徐春伟]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Yii随笔]]></title>
+    <link href="http://www.xuchunwei.com/blog/20140127/yii/"/>
+    <updated>2014-01-27T23:06:45+08:00</updated>
+    <id>http://www.xuchunwei.com/blog/20140127/yii</id>
+    <content type="html"><![CDATA[<p>yii是一个基于组件的高性能php框架，采用严格的OOP编写，非常易于学习和使用。最让我欣赏的是开发速度非常快。</p>
+
+<!--more-->
+
+
+<p>查看环境是否支持</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>http://hostname/requirements/index.php</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安装</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd framework
+</span><span class='line'>php yiic webname ../   // 需在 config/main.php 加 ‘timezone’ =&gt;’Asia/singapore’</span></code></pre></td></tr></table></div></figure>
+
+
+<p>连接DB</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>改config/main.php,若用mysql则去掉’db’=&gt;array(‘connectionString’=&gt;’mysql:host=localhost;dbname=test’,xxx),注释</span></code></pre></td></tr></table></div></figure>
+
+
+<p>测试连接DB</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var_dump(Yii::app()-&gt;db)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>配置gii</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>改config/main.php,去掉‘gii’=&gt;array(‘class’=&gt;’system.gii.GiiModule’,xxx),注释
+</span><span class='line'>注：‘password’=‘xxx’,是登录gii的密码。</span></code></pre></td></tr></table></div></figure>
+
+
+<p>设置默认控制器</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>改config/main.php 加 ‘defaultController’ =&gt; ‘xxx’,</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Yii urlManager</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>改config/main.php,去掉‘urlManager’=&gt;array(xxx),注释
+</span><span class='line'>‘urlSuffix’=&gt;’.html’,以html做为后缀
+</span><span class='line'>url去掉index.php
+</span><span class='line'>1.添加 ‘showScriptName’=&gt;false,
+</span><span class='line'>2.在网站根目录添加.htaccess文件
+</span><span class='line'>options +FollowSymLinks
+</span><span class='line'>RewriteEngine on
+</span><span class='line'>RewriteCond %{REQUEST_FILENAME} !-f
+</span><span class='line'>RewriteCond %{REQUEST_FILENAME} !-d
+</span><span class='line'>RewriteRule . index.php
+</span><span class='line'>3.apache.conf中添加AllowOverride All
+</span><span class='line'>4.apache安装了rewrite模块</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$this-&gt;render(‘xxx’) 会载入layouts里的布局
+</span><span class='line'>$this-&gt;renderPartial(‘xxx’) 不载入布局，也不会载入框架自带的jquery等</span></code></pre></td></tr></table></div></figure>
+
+
+<p>生成模型</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>访问 http://xxx/index.php?r=gii,点击Model Generator</span></code></pre></td></tr></table></div></figure>
+
+
+<p>生成CRUD代码</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>点击Crud Generator,Model Class中输入创建好的Model
+</span><span class='line'>访问创建的crud，http://xxx/index.php?r={modelClassName}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在生产环境下删除/index.php中的 defined(‘YII_DEBUG’) or define(‘YII_TRACE_LEVEL’,3)</p>
+
+<p>要访问一个组件可 Yii::app()->{ComponentID}</p>
+
+<p>在/protected/controllers/xxxController.php中 accessRules()可控制用户的使用权限</p>
+
+<p>开启DB日志</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>在config/main.php 中的 ‘db’=&gt;array() 添加 ‘enableProfiling’=&gt;YII_DEBUG,
+</span><span class='line'>‘enableParamLogging’=&gt;YII_DEBUG,还要在 ‘log’=&gt;array() 添加
+</span><span class='line'>array(‘class’=&gt;’CWebLogRoute’,’levels’=&gt;’trace’,’categories’=&gt;’system.db.*’)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>yii数据库规范<br/>
+表名和列名都小写，单词以_分割，表名使用单数名字</p>
+
+<p>yii DAO包含四个类</p>
+
+<blockquote><p>CDbConnection 代表一个数据库连接<br/>
+CDbCommand 代表一条通过数据库执行的 SQL 语句<br/>
+CDbDataReader 代表一个只向前移动的，来自一个查询结果集中的行的流<br/>
+CDbTransaction 代表一个数据库事务</p></blockquote>
+
+<p>执行sql语句</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$command = Yii::app()-&gt;db-&gt;createCommand($sql)
+</span><span class='line'>$command-&gt;execute() 执行无查询sql
+</span><span class='line'>$command-&gt;query() 执行一个sql查询
+</span><span class='line'>$command-&gt;queryAll() 查询并返回结果中的所有行
+</span><span class='line'>$command-&gt;queryRow() 查询并返回结果中的第行
+</span><span class='line'>$command-&gt;queryColumn() 查询并返回结果中的第一列
+</span><span class='line'>$command-&gt;queryScalar() 查询并返回结果中第一行的第一个字段
+</span><span class='line'>
+</span><span class='line'>$command-&gt;bindParam(‘:x’,$value,PDO::PARAM_STR/PDO::PARAM_INT)
+</span><span class='line'>$command-&gt;bindValue(‘:x’,’xxx’,PDO::PARAM_STR/PDO::PARAM_INT)
+</span><span class='line'>注：若配置表前缀可以在sql语句中写
+</span><span class='line'>
+</span><span class='line'>Yii::app()-&gt;db-&gt;createCommand()-&gt;insert($tableName, array('name'=&gt;'aa','age'=&gt;1));  // 插入数据
+</span><span class='line'>Yii:app()-&gt;slave_db-&gt;createCommand()-&gt;select('*')-&gt;from($tableNmae)-&gt;where('name="a"')-&gt;queryAll()  // 查询数据
+</span><span class='line'>Yii::app()-&gt;db-&gt;createCommand()-&gt;delete($tableName, 'name="a"')  // 删除数据
+</span><span class='line'>Yii::app()-&gt;db-&gt;createCommand()-&gt;update($tableName, array('name'=&gt;'b'),'age=1')  // 更新数据</span></code></pre></td></tr></table></div></figure>
+
+
+<p>获得查询结果</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$dataReader = $command-&gt;query();
+</span><span class='line'>while(($row=$dataReader-&gt;read())!==false) { … } 重复调用 read() 直到它返回 false
+</span><span class='line'>foreach($dataReader as $row) { … } 使用 foreach 遍历数据中的每一行
+</span><span class='line'>$rows=$dataReader-&gt;readAll(); 一次性提取所有行到一个数组</span></code></pre></td></tr></table></div></figure>
+
+
+<p>读取记录(AR)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$post=Post::model()-&gt;find($condition,$params); 查找满足指定条件的结果中的第一行
+</span><span class='line'>例:$posts=Post::model()-&gt;find(array(
+</span><span class='line'>‘select’=&gt;’title’,
+</span><span class='line'>‘condition’=&gt;’postID=:postID’,
+</span><span class='line'>‘params’=&gt;array(‘:postID’=&gt;10),
+</span><span class='line'>))
+</span><span class='line'>$posts=Post::model()-&gt;find(‘id=:id’,array(‘:id’=&gt;$id))
+</span><span class='line'>$post=Post::model()-&gt;findByPk($postID,$condition,$params); 查找具有指定主键值的那一行
+</span><span class='line'>$post=Post::model()-&gt;findByAttributes($attributes,$condition,$params); 查找具有指定属性值的行
+</span><span class='line'>例:$post=Post::model()-&gt;findByAttributes(array(‘name’=&gt;$name))
+</span><span class='line'>$post=Post::model()-&gt;findBySql($sql,$params); 通过指定的 SQL 语句查找结果中的第一行
+</span><span class='line'>
+</span><span class='line'>$posts=Post::model()-&gt;findAll($condition,$params); 查找满足指定条件的所有行
+</span><span class='line'>$posts=Post::model()-&gt;findAllByPk($postIDs,$condition,$params); 查找带有指定主键的所有行
+</span><span class='line'>$posts=Post::model()-&gt;findAllByAttributes($attributes,$condition,$params); 查找带有指定属性值的所有行
+</span><span class='line'>$posts=Post::model()-&gt;findAllBySql($sql,$params); 通过指定的SQL语句查找所有行
+</span><span class='line'>注：如果没有任何东西符合查询条件，findAll 将返回一个空数组。find 会在没有找到什么东西时返回 null
+</span><span class='line'>
+</span><span class='line'>Post::model()-&gt;count($condition,$params) 获取满足指定条件的行数
+</span><span class='line'>Post::model()-&gt;countBySql($sql,$params) 通过指定的 SQL 获取结果行数
+</span><span class='line'>Post::model()-&gt;exists($condition,$params) 检查是否至少有一行复合指定的条件</span></code></pre></td></tr></table></div></figure>
+
+
+<p>更新记录</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>save可执行插入和更新操作，如果AR使用new创建的是插入，如果是find或findAll方法，则是更新
+</span><span class='line'>如：$post = Post::model()-&gt;findByPk(10);
+</span><span class='line'>$post -&gt; title = ‘new title’;
+</span><span class='line'>$post -&gt; save() //更新
+</span><span class='line'>
+</span><span class='line'>Post::model()-&gt;updateAll($attributes,$condition,$params); 更新符合指定条件的行
+</span><span class='line'>Post::model()-&gt;updateByPk($pk,$attributes,$condition,$params); 更新符合指定条件和主键的行
+</span><span class='line'>Post::model()-&gt;updateCounters($counters,$condition,$params); 更新满足指定条件的行的计数列</span></code></pre></td></tr></table></div></figure>
+
+
+<p>删除记录</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$post = Post::model()-&gt;findByPk(10);
+</span><span class='line'>$post -&gt; delete();
+</span><span class='line'>Post::model()-&gt;deleteAll($condition,$params); 删除符合指定条件的行
+</span><span class='line'>Post::model()-&gt;deleteByPk($pk,$condition,$params); 删除符合指定条件和主键的行
+</span><span class='line'>注：删除之后，AR实例仍然不变，但数据表的数据会删除</span></code></pre></td></tr></table></div></figure>
+
+
+<p>数据验证</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>当save()时自动验证，基于rules()指定规则验证
+</span><span class='line'>$post-&gt;title=$_POST['title'];
+</span><span class='line'>$post-&gt;content=$_POST['content'];
+</span><span class='line'>$post-&gt;save();
+</span><span class='line'>可以简化为
+</span><span class='line'>$post-&gt;attributes=$_POST['Post'];
+</span><span class='line'>$post-&gt;save();</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mysql随笔]]></title>
+    <link href="http://www.xuchunwei.com/blog/20100119/mysql/"/>
+    <updated>2010-01-19T21:43:59+08:00</updated>
+    <id>http://www.xuchunwei.com/blog/20100119/mysql</id>
+    <content type="html"><![CDATA[<p>mysql是web开发使用最广泛的数据库之一，最让我欣赏的是它是免费的</p>
+
+<!--more-->
+
+
+<h2>常用命令</h2>
+
+<p>mysql服务的启动和停止</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>net stop mysql
+</span><span class='line'>net start mysql</span></code></pre></td></tr></table></div></figure>
+
+
+<p>登陆mysql</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mysql -u user -p password  # 如果是连接到另外的机器上，则需要加入一个参数-h机器IP</span></code></pre></td></tr></table></div></figure>
+
+
+<p>增加新用户</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>grant 权限 on 数据库.* to 用户名@登录主机 identified by “密码” 
+</span><span class='line'># 增加一个用户user1密码为password1，让其可以在本机上登录， 并对所有数据库有查询、插入、修改、删除的权限。
+</span><span class='line'>首先用以root用户连入mysql，然后键入以下命令：
+</span><span class='line'>grant select,insert,update,delete on *.* to user1@localhost Identified by “password1″;
+</span><span class='line'>如果希望该用户能够在任何机器上登陆mysql，则将localhost改为”%”。
+</span><span class='line'>若拥有所有权限，则改为 grant all on ...
+</span><span class='line'>如果你不想user1有密码，可以再打一个命令将密码去掉。
+</span><span class='line'>grant select,insert,update,delete on mydb.* to user1@localhost identified by “”;
+</span><span class='line'>flush privileges;  刷新系统权限表
+</span><span class='line'>修改/etc/mysql/my.cnf文件，注释 bind-address = 127.0.0.1</span></code></pre></td></tr></table></div></figure>
+
+
+<p>显示数据库列表</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>show databases;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>显示库中的数据表</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>use mysql;
+</span><span class='line'>show tables;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>显示数据表的结构</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>describe tableName;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>建库与删库</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>create database databaseName;
+</span><span class='line'>drop database databaseName;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>建表</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>use databaseName;
+</span><span class='line'>create table tableName(字段列表);
+</span><span class='line'>drop table tableName;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>清空表中记录</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>truncate tableName;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>导出数据</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mysqldump –opt test &gt; mysql.test  # mysqldump -u root -p123456 –databases dbname &gt; mysql.dbname</span></code></pre></td></tr></table></div></figure>
+
+
+<p>导入数据</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>use mysql;
+</span><span class='line'>source /var/mysql.sql;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>将文本数据导入数据库<br/>
+文本数据的字段数据之间用tab键隔开。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>use test;
+</span><span class='line'>load data local infile “文件名” into table 表名;</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Linux随笔]]></title>
+    <link href="http://www.xuchunwei.com/blog/20100118/linux/"/>
+    <updated>2010-01-18T15:09:43+08:00</updated>
+    <id>http://www.xuchunwei.com/blog/20100118/linux</id>
+    <content type="html"><![CDATA[<p>linux是服务器端操作系统不二之选，是从事程序开发必备技能之一。本文记录linux的基础命令(debian版本)。</p>
+
+<!--more-->
+
+
+<h2>vi</h2>
+
+<p>vi + file 打开file文件光标定位至最后一行<br/>
+vi +4 file 打开并定位到第四行<br/>
+vi +/word file 打开并定位到第一个word所在的行
+vi a b c 打开a b c文件底部命令n切换下个文件，N切换上个文件  <br/>
+按<code>h</code> <code>j</code> <code>k</code> <code>l</code>光标移动为 左，下，上，右 <br/>
+<code>ctrl+f</code> 向前移动一页 <br/>
+<code>ctrl+b</code> 向后移动一页 <br/>
+<code>ctrl+d</code> 向前移动半页 <br/>
+<code>ctrl+u</code> 向后移动半页<br/>
+<code>+</code> 向下移动一行<br/>
+<code>-</code> 向上移动一行</p>
+
+<p><code>/word</code> 光标后查找word字符串 按n查找下一个  <br/>
+<code>?word</code> 光标前查找word字符串</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>x # 向后删除一个字符(`10x` 向后删除10个字符)
+</span><span class='line'>X # 向前删除一个字符
+</span><span class='line'>dd # 删除光标所在行(`10dd` 删除光标所在向下10行, `d10G` 删除光标所在到第10行, `dG` 删除光标及以下所有行)
+</span><span class='line'>yy # 复制光标所在行(`10yy` 复制光标所在向下10行, `y10G` 复制光标所在到第10行, `yG` 复制光标及以下所有行)
+</span><span class='line'>p # 粘贴在光标下一行
+</span><span class='line'>P # 粘贴在光标上一行
+</span><span class='line'>J # 光标所在行与下一行合并
+</span><span class='line'>u # 复原前一个动作</span></code></pre></td></tr></table></div></figure>
+
+
+<p>按<code>i</code> <code>I</code> <code>o</code> <code>O</code> <code>a</code> <code>A</code> <code>r</code> <code>R</code>进入编辑模式<br/>
+按<code>ESC</code>退出编辑模式<br/>
+按<code>:</code> <code>/</code>进入命令行模式</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>:w fileName # 保存为fileName(3,7 w file 将3到7行的内容存为file)
+</span><span class='line'>:r fileName # 将fileName加到光标所在行后面
+</span><span class='line'>:wq # 存盘并退出(wx 亦可)
+</span><span class='line'>:w! # 若为只读属性，则强制写入
+</span><span class='line'>:e! # 还原至原始状态
+</span><span class='line'>:q! # 不存盘退出
+</span><span class='line'>:ls # 列出所有打开的文件
+</span><span class='line'>:15 # 光杆定位至15行
+</span><span class='line'>:set nu # 显示行号
+</span><span class='line'>:set nonu # 取消行号</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>shell</h2>
+
+<p>rm[remove] 删除文件或目录<br/>
+rm -f filename -f 强制删除文件不提醒。-r 删除目录</p>
+
+<p>cp[copy] 复制文件/文件夹<br/>
+cp -i 源文件 目标文件 -i 当目标文件存在时提示。-r 复制文件夹
+-p  连带文件属性复制，-d 若源文件是链接文件，则复制链接属性
+-a 相当于 -rpd</p>
+
+<p>cd[change directory] 切换目录<br/>
+cd .. 返回上一层。cd 返回用户目录。cd - 进入上次目录</p>
+
+<p>cat 显示文件内容<br/>
+cat > filename 创建一个文件。cat file1 file2 > file 合并文件</p>
+
+<p>more 显示文件内容<br/>
+和cat类似，分屏显示</p>
+
+<p>less 显示文件内容<br/>
+j 向后滚动浏览，k 向前浏览， g 页首,  G 页尾,  q 退出</p>
+
+<p>ls[ list ] 列出目录内容<br/>
+ls -a 显示所有文件包含以.开头的隐含文件。ls -l 列出文件的详细信息
+ls -d 查看目录属性，ls -h 人性化显示文件大小, ll 等同于 ls -l</p>
+
+<p>mv[move] 移动或更名现有目录或文件<br/>
+mv -i 源文件 目标文件 -i 当目标文件存在时提示 -f 禁止交互操作,不提示,-i失去作用。mv * ../ 移动当前所有文件到上一级。</p>
+
+<p>mkdir[make directories] 建立目录<br/>
+mkdir -p aa/aa/bb 递归创建三个目录</p>
+
+<p>file xx.txt  检测文件类型</p>
+
+<p>chmod[change mode] 更改文件或目录的权限<br/>
+chmod a=rwx file 更改file为所有权限。chmod abc file a代表user,b代表group,c代表other 的权限,r=4,w=2,x=1 chmod -R 777 file 文件夹及子文件夹一并处理</p>
+
+<p>chown[change owner] 变更文件或目录的拥有者或所属群组<br/>
+chown oracle:net /home/u1 表示改变目录所有者为oracle账户和组net -R 递归处理，将指定目录下的所有文件及子目录一并处理</p>
+
+<p>chgrp[change group] 变更文件或目录的所属群组<br/>
+chgrp dba /home/u1 改变/home/u1目录为dba所有 -R 递归处理，将指定目录下的所有文件及子目录一并处理</p>
+
+<p>tar[tape archive] 打包文件</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tar -cvf xx.tar xx.txt/xx 打包xx.txt文件或xx目录。
+</span><span class='line'>tar -xvf xx.tar /var/www/ 解包xx.tar文件至/var/www/
+</span><span class='line'>tar -rf xx.tar xx.txt 增加备份xx.txt文件
+</span><span class='line'>tar -tf xx.tar 查看xx.tar里文件
+</span><span class='line'>tar -tf 1.tar | grep 1.txt 查找1.tar中的1.txt文件 去掉txt则查找1文件
+</span><span class='line'>tar -exclude a -cf xx.tar * 打包当前目录所有的文件除了a文件夹
+</span><span class='line'>tar -zcvf xx.tar.gz xx  打包并压缩xx为gz文件，-zxvf 解压
+</span><span class='line'>tar -jcvf xx.tar.bz2 xx  打包并压缩xx为bz2文件，-jxvf 解压</span></code></pre></td></tr></table></div></figure>
+
+
+<p>du[disk usage] 显示目录或文件的大小<br/>
+du -sh /var 显示var的大小</p>
+
+<p>pwd[print working directory] 显示工作目录</p>
+
+<p>id 显示用户的ID，以及所属群组的ID</p>
+
+<p>mount 加载文件系统<br/>
+-r 以只读的模式载入设备 -w 以可读写模式载入设备 mount /dev/hda5/ /mnt 把hda5加载到/mnt</p>
+
+<p>umount 卸载文件系统<br/>
+umount 设备文件名或挂载点 卸载时需要退出挂载点所在路径</p>
+
+<p>man 查看命令帮助信息<br/>
+按q退出</p>
+
+<p>zip aa.zip aa  压缩aa文件为aa.zip，-r 压缩目录</p>
+
+<p>unzip 解压缩zip文件<br/>
+unzip xx.zip 解压xx.zip文件。unzip -d /www xx.zip 解压xx.zip文件到www。unzip -l xx.zip 查看xx.zip包含哪些文件。-o 不询问用户覆盖原有文件。-f 更新现有文件。</p>
+
+<p>gzip aa  压缩aa文件为 aa.gz, 压缩完成后，源文件aa会消失，-r 压缩目录下所有子目, -d 解压缩文件</p>
+
+<p>gunzip aa.gz 解压缩</p>
+
+<p>bzip2 aa 压缩aa文件为 aa.bz2，-k 保留源文件aa, -d 解压缩</p>
+
+<p>bunzip2 aa.bz2 解压缩 -k 保留源文件</p>
+
+<p>find 查找文件或目录</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>* 匹配任意内容，? 匹配一个字符，[]匹配任意中括号的内容
+</span><span class='line'>
+</span><span class='line'>find / -name xx.txt 按名字查找xx.txt。find /usr/ -name 'a*' 查找usr文件下的a开头的文件    
+</span><span class='line'>find / -iname xx.txt 不区分大小写查找  
+</span><span class='line'>find / -size 10k  查大小为10kb的文件 k是小写，M是大写    
+</span><span class='line'>find / -size +1000c 查找大于10000btyes的文件，用减号表示小于10000字节  
+</span><span class='line'>find . -size +20M -a -size -5k  查找大于20m并且小于50kb的文件 -o 逻辑或
+</span><span class='line'>find . -size +10M -exec ls -lh {} \;  查当前大于10mb的文件并显示大小（ls -lh）
+</span><span class='line'>find / -mmin -5 查找最后5分钟修改过的文件    
+</span><span class='line'>find / -mtime -1 查找一天内修改过的文件  
+</span><span class='line'>find / -ctime +1 查找一天前改变文件属性的文件  
+</span><span class='line'>find / -atime 1 查找一天当天文件访问的文件    
+</span><span class='line'>find / -amin -10 查找在系统中最后10分钟访问的文件  
+</span><span class='line'>find / -atime -2 查找最后2天访问的文件  
+</span><span class='line'>find / -empty 查找为空的文件或文件夹  
+</span><span class='line'>find / -group cat 查找属于组cat的文件  
+</span><span class='line'>find / -nouser 查找没有所有者的文件  
+</span><span class='line'>find / -user fred 查找fred用户的文件  
+</span><span class='line'>find / -cmin n 查找是n分钟改变状态的文件  
+</span><span class='line'>find / -false 查找总是错误的文件  
+</span><span class='line'>find . -inum 262422 在当前路径查找i节点为262422的文件  
+</span><span class='line'>find . -type f  只查找文件
+</span><span class='line'>find . -type d  只查找目录</span></code></pre></td></tr></table></div></figure>
+
+
+<p>grep 搜索字符串，grep -i &lsquo;aaa&rsquo; test.php 在test.php文件中查找 aaa 字符串 -i 不区分大小写，-v 排除指定字符串</p>
+
+<p>locate 查找文件 只按文件名查
+在后台数据库查，比find快，后台库在 /var/lib/mlocate  一天一更新，updatedb可强制更新, 配置文件在 /etc/updatedb.conf</p>
+
+<p>wc[word count] 计算字数<br/>
+-c 只显示bytes数。-l 只显示列数。-w 只显示字数。<br/>
+wc &lt; test.php  统计php文件</p>
+
+<p>useradd 新增用户帐号<br/>
+-u 直接给出用户id。-g 给出用户组。-d 将根目录建立在已存在目录上。-s 定义shell 。useradd -d /home/weixiaohong -g www-data -s /bin/sh username</p>
+
+<p>passwd 设置密码<br/>
+新增用户后，要设置密码，否则不能用。-d 使用户无密码 -l 锁定用户 -u 解锁用户</p>
+
+<p>usermod 修改用户<br/>
+usermod -l newuser olduser 修改用户名olduser为newuser<br/>
+usermod -d /home/aa aa   修改用用户名aa目录为/home/aa</p>
+
+<p>userdel 删除用户<br/>
+userdel user 删除用户user，-r 属于user的文件也删除(最好不用)。-f 删除用户登入目录以及目录中所有文件</p>
+
+<p>who 显示目前登入系统的用户信息</p>
+
+<p>w 显示目前登入系统的用户信息</p>
+
+<p>last 显示当前和过去登录的用户信息</p>
+
+<p>lastlog 显示所有用户最后一次的登录</p>
+
+<p>alias 显示命令别名  alias vi=&lsquo;vim&rsquo; 设置vim命令别名为vi(临时生效)</p>
+
+<p>unalias vi 临时删除别名vi</p>
+
+<p>vi ~/bashrc  设置别名永久生效</p>
+
+<p>groupadd 增加用户组
+groupadd -g 888 gname  创建编号为888的gname组</p>
+
+<p>groupmod 修改用户组<br/>
+-n newgroup oldgroup 更改组名 -g 666 gname 修改gname组编号为666</p>
+
+<p>groupdel 删除用户组</p>
+
+<p>gpasswd -a aa othergroup  为用户aa添加附属组othergroup -d 删除用户附属组</p>
+
+<p>newgrp 登入另一个群组<br/>
+如果当前用户属于多个群组，可以切换到另个群组。</p>
+
+<p>cat /etc/passwd 查用户信息</p>
+
+<p>cat /etc/shadow 查看密码</p>
+
+<p>cat /etc/group 查看用户组</p>
+
+<p>cat /proc/version 查看系统信息</p>
+
+<p>more /proc/cpuinfo 查看cpu信息</p>
+
+<p>echo $PATH  显示环境变量</p>
+
+<p>echo a*  显示所有a开头的文件</p>
+
+<p>ifconfig 显示或设置网络设备</p>
+
+<p>netstat -an 显示当前网络连接</p>
+
+<p>free 显示内存状态<br/>
+-s 3 持续观察，间隔3秒。</p>
+
+<p>ln 链接
+-s 创建软链接。ln -s aaa bbb 不加s 创建硬链接，创软链接源文件和目标文件不在同目录，源文件需要是绝对路径</p>
+
+<p>df[disk free] 显示磁盘的相关信息<br/>
+-h 以可读性较高的方式来显示硬盘剩余信息。-i 显示inode(索引)信息。-</p>
+
+<p>tail -f filename 监视filename的尾部内容(默认10行) -n 20 最后20行，-n +20 前20行</p>
+
+<p>startx[start X Window] 启动X Window</p>
+
+<p>sync 将内存缓冲区内的数据写入磁盘</p>
+
+<p>shutdown 系统关机指令<br/>
+shutdown -h now 将系统关机。-k 只是送出信息给所有用户，但不会实际关机。-r shutdown之后重新启动。shutdown -r +10 十分钟后重启。shutdown -h 10:00 十点钟重启. -c 取消前一个关机命令</p>
+
+<p>reboot 重启</p>
+
+<p>新建文件</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi xx.txt
+</span><span class='line'>echo “xxx” &gt; xx.txt
+</span><span class='line'>cat &gt; xx.txt
+</span><span class='line'>touch xx.txt</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>ctrl+c</code> 中止当前命令的执行<br/>
+退出系统</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ctrl+d
+</span><span class='line'>logout
+</span><span class='line'>exit</span></code></pre></td></tr></table></div></figure>
+
+
+<p>设置vi语法高亮显示<br/>
+修改 /etc/vim/vimrc ，使其syntax on前面的注释符去掉</p>
+
+<p>history 保存了最近执行过的500条命令</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>!n 执行编号为n的命令
+</span><span class='line'>!-n 执行倒数第n个命令
+</span><span class='line'>!! 执行上一个历史命令（在历史记录中不加入）
+</span><span class='line'>!xx 执行以’xx’开头的历史命令
+</span><span class='line'>!?xx? 执行包含’xx’的历史命令</span></code></pre></td></tr></table></div></figure>
+
+
+<p>当输入到足够多的字符时，按tab会自动补全<br/>
+三种通配符</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>？表示任意的单个字符
+</span><span class='line'>* 表示任意长的任意字符串
+</span><span class='line'>[] 表示匹配放在[]中的字符集中的单个字符
+</span><span class='line'>[-] 匹配范转 如 [a-z]
+</span><span class='line'>[^] 匹配不是括号内的字符</span></code></pre></td></tr></table></div></figure>
+
+
+<p>shell使用的三种引号:</p>
+
+<ul>
+<li>双引号” 在双引号除 $,”,’和\以外的特殊字符的特殊意义都解释成字符本身。</li>
+<li>单引号&#8217; 纯字符，所有特殊字符都将失去意义</li>
+<li>反引号` 反引号中的字符被解释成命令</li>
+</ul>
+
+
+<p>输入重定向<br/>
+格式：命令 &lt; 数据文件</p>
+
+<p>输出重定向
+格式：命令 > 数据文件</p>
+
+<p>例：cat file1 file2 > file.txt<br/>
+在文件名和’>’之间要放一个空格，数据文件不论原先是否存在，都是将命令的输出覆盖上去。</p>
+
+<p>命令 >> 数据文件<br/>
+是输出追加符，若数据文件已存在，则添加到文件尾部，否则建立新的。
+命令 >> 文件 2>&amp;1 或者 命令 &amp;>>文件 命令执行的正确结果和错误都写入文件<br/>
+命令 >> 文件1 2>>文件2  把正确的输出追加到文件1，错误输出追加到文件2</p>
+
+<p>管道操作符<br/>
+命令1 | 命令2  命令1的正确输出作为命令2的操作对象<br/>
+;  连接多个命令，分号前后命令无因果关系<br/>
+&amp;&amp; 连接两个命令，前一个成功后一个执行<br/>
+|| 连接两个命令，前一个不成功后一个执行</p>
+
+<p>linux 文本启动方式<br/>
+修改 /etc/inittab 文件中的 id:5:initdefault 中的5改成3</p>
+
+<blockquote><p>0：关机<br/>
+1：单用户模式<br/>
+2：多用户(不支持网络登录)<br/>
+3：多用户<br/>
+4：保留(系统保留)<br/>
+5：x-window<br/>
+6：重启<br/>
+至此系统重启后就进入命令行状态，但是对debian系统来说，还是不行的，还需
+进入 /etc/rc3.d。然后把s30gdm 改成k70gdm。</p></blockquote>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>apt-get upgrade 把本机所有软件升级到最新版
+</span><span class='line'>apt-get clean 清除 /var/cache/apt/archives/ 下的缓存文件
+</span><span class='line'>apt-get autoclean 清除 archives 下没用的或不完整的软件包</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>apt-get remove xx</code> 卸载xx软件</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>安装mysql5
+</span><span class='line'>sudo apt-get install mysql-server
+</span><span class='line'>安装apache2
+</span><span class='line'>sudo apt-get install apache2
+</span><span class='line'>安装php5
+</span><span class='line'>sudo apt-get install php5
+</span><span class='line'>安装php的mysql模块
+</span><span class='line'>sudo apt-get install php5-mysql
+</span><span class='line'>安装GD库
+</span><span class='line'>sudo apt-get install php5-gd
+</span><span class='line'>安装phpmyadmin
+</span><span class='line'>sudo apt-get install phpmyadmin
+</span><span class='line'>安装vsftpd
+</span><span class='line'>sudo apt-get install vsftpd
+</span><span class='line'>安装ssh
+</span><span class='line'>sudo apt-get install ssh
+</span><span class='line'>安装zip
+</span><span class='line'>sudo apt-get install unzip</span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>mysql的配置文件my.cnf /etc/mysql/my.cnf<br/>
+apache2的配置文件apache2.conf /etc/apache2/apache2.conf<br/>
+php的配置文件php.ini /etc/php5/apache2/php.ini<br/>
+vsftpd的配置文件vsftpd.conf /etc/vsftpd.conf</p>
+
+<p>apache的启动和停止命令 /etc/init.d/apache2 start|restart|stop<br/>
+mysql的启动和停止命令 /etc/init.d/mysql start|restart|stop<br/>
+vsftpd的配置文件 /etc/init.d/vsftpd start|restart|stop</p>
+
+<p>mysql数据库文件存在/var/lib/mysql</p></blockquote>
+
+<h2>shell快捷键</h2>
+
+<ul>
+<li>ctrl + c  强制终止当前命令</li>
+<li>ctrl + l  清屏</li>
+<li>ctrl + a  光标移至行首</li>
+<li>ctrl + e  光标移至行尾</li>
+<li>ctrl + u  从光标所在位置删除到行首</li>
+<li>ctrl + z  把命令放入后台</li>
+<li>ctrl + r  在历史命令中搜索</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
