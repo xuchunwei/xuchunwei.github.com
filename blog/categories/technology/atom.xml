@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | 深海后花园]]></title>
   <link href="http://www.xuchunwei.com/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2016-09-07T09:45:00+08:00</updated>
+  <updated>2016-09-07T10:41:45+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -12,6 +12,23 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Laravel随笔]]></title>
+    <link href="http://www.xuchunwei.com/blog/20160907/laravel/"/>
+    <updated>2016-09-07T09:56:26+08:00</updated>
+    <id>http://www.xuchunwei.com/blog/20160907/laravel</id>
+    <content type="html"><![CDATA[<p>号称为艺术家而生的框架</p>
+
+<!--more-->
+
+
+<p>查询
+<code>
+User::where('name',1)-&gt;where('id','&gt;',1)-&gt;whereIn('type',[1,2,3])-&gt;whereNotIn('a',[1])-&gt;orWhere('b',1)-&gt;whereBetween('c',[1,9])-&gt;whereNotBetween('d',[2,4])-&gt;orderBy('id','desc')-&gt;skip(10)-&gt;take(2)-&gt;select(['name','id'])-&gt;get()
+</code></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Yii随笔]]></title>
