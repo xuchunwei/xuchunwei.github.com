@@ -11,4 +11,10 @@ keywords: yii
 号称为艺术家而生的框架
 <!--more-->
 查询
->>User::where('name',1)->where('id','>',1)->whereIn('type',[1,2,3])->whereNotIn('a',[1])->orWhere('b',1)->whereBetween('c',[1,9])->whereNotBetween('d',[2,4])->orderBy('id','desc')->skip(10)->take(2)->select(['name','id'])->get()
+>User::where('name',1)->where('id','>',1)->whereIn('type',[1,2,3])->whereNotIn('a',[1])->orWhere('b',1)->whereBetween('c',[1,9])->whereNotBetween('d',[2,4])->orderBy('id','desc')->skip(10)->take(2)->select(['name','id'])->get() // limit 10,2
+>User::find(1)  // id = 1
+>User::find(1)->name
+>User::where('a',1)->first()
+>User::where('a',1)->lists('b')
+>User::where('a',1)->where('b','like','%ss%')->groupBy('c')->count();
+>User::where('a',1)->leftJoin('table as t',function($join))
