@@ -4,7 +4,7 @@
   <title><![CDATA[深海后花园]]></title>
   <link href="http://www.xuchunwei.com/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2016-09-07T10:44:12+08:00</updated>
+  <updated>2016-09-07T10:58:30+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -25,7 +25,13 @@
 
 <p>查询</p>
 
-<blockquote><blockquote><p>User::where(&lsquo;name&rsquo;,1)->where(&lsquo;id&rsquo;,&lsquo;>&rsquo;,1)->whereIn(&lsquo;type&rsquo;,[1,2,3])->whereNotIn(&lsquo;a&rsquo;,[1])->orWhere(&lsquo;b&rsquo;,1)->whereBetween(&lsquo;c&rsquo;,[1,9])->whereNotBetween(&rsquo;d&#8217;,[2,4])->orderBy(&lsquo;id&rsquo;,&lsquo;desc&rsquo;)->skip(10)->take(2)->select([&lsquo;name&rsquo;,&lsquo;id&rsquo;])->get()</p></blockquote></blockquote>
+<blockquote><p>User::where(&lsquo;name&rsquo;,1)->where(&lsquo;id&rsquo;,&lsquo;>&rsquo;,1)->whereIn(&lsquo;type&rsquo;,[1,2,3])->whereNotIn(&lsquo;a&rsquo;,[1])->orWhere(&lsquo;b&rsquo;,1)->whereBetween(&lsquo;c&rsquo;,[1,9])->whereNotBetween(&rsquo;d&#8217;,[2,4])->orderBy(&lsquo;id&rsquo;,&lsquo;desc&rsquo;)->skip(10)->take(2)->select([&lsquo;name&rsquo;,&lsquo;id&rsquo;])->get() // limit 10,2
+User::find(1)  // id = 1
+User::find(1)->name
+User::where(&lsquo;a&rsquo;,1)->first()
+User::where(&lsquo;a&rsquo;,1)->lists(&lsquo;b&rsquo;)
+User::where(&lsquo;a&rsquo;,1)->where(&lsquo;b&rsquo;,&lsquo;like&rsquo;,&lsquo;%ss%&rsquo;)->groupBy(&lsquo;c&rsquo;)->count();
+User::where(&lsquo;a&rsquo;,1)->leftJoin(&lsquo;table as t&rsquo;,function($join))</p></blockquote>
 ]]></content>
   </entry>
   
