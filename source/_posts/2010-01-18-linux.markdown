@@ -349,12 +349,11 @@ sudo apt-get install ssh
 安装zip
 sudo apt-get install unzip
 ```
->sudo vim /etc/crontab
->* */1 * * * root php /home/xuchunwei/test.php 每分钟运行test.php(注意test.php权
+sudo vim /etc/crontab
+* */1 * * * root php /home/xuchunwei/test.php 每分钟运行test.php(注意test.php权
 限)
->sudo /etc/init.d/cron restart
+sudo /etc/init.d/cron restart
 
-```
 >mysql的配置文件my.cnf /etc/mysql/my.cnf  
 >apache2的配置文件apache2.conf /etc/apache2/apache2.conf  
 >php的配置文件php.ini /etc/php5/apache2/php.ini  
