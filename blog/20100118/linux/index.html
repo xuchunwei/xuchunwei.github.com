@@ -544,10 +544,12 @@ vsftpd的配置文件vsftpd.conf /etc/vsftpd.conf</p>
 mysql的启动和停止命令 /etc/init.d/mysql start|restart|stop<br/>
 vsftpd的配置文件 /etc/init.d/vsftpd start|restart|stop</p>
 
-<p>mysql数据库文件存在/var/lib/mysql<br/>
-&#8220;`
-crontab
-sudo vim /etc/crontab
+<p>mysql数据库文件存在/var/lib/mysql</p></blockquote>
+
+<p>&#8220;`
+crontab</p>
+
+<blockquote><p>sudo vim /etc/crontab
 * */1 * * * root php /home/xuchunwei/test.php 每分钟运行test.php(注意test.php权限)
 sudo /etc/init.d/cron restart</p></blockquote>
 
