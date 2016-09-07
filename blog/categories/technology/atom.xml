@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | 深海后花园]]></title>
   <link href="http://www.xuchunwei.com/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2016-09-07T10:41:45+08:00</updated>
+  <updated>2016-09-07T10:44:12+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -15,18 +15,17 @@
   
   <entry>
     <title type="html"><![CDATA[Laravel随笔]]></title>
-    <link href="http://www.xuchunwei.com/blog/20160907/laravel/"/>
-    <updated>2016-09-07T09:56:26+08:00</updated>
-    <id>http://www.xuchunwei.com/blog/20160907/laravel</id>
+    <link href="http://www.xuchunwei.com/blog/20151019/laravel/"/>
+    <updated>2015-10-19T09:56:26+08:00</updated>
+    <id>http://www.xuchunwei.com/blog/20151019/laravel</id>
     <content type="html"><![CDATA[<p>号称为艺术家而生的框架</p>
 
 <!--more-->
 
 
-<p>查询
-<code>
-User::where('name',1)-&gt;where('id','&gt;',1)-&gt;whereIn('type',[1,2,3])-&gt;whereNotIn('a',[1])-&gt;orWhere('b',1)-&gt;whereBetween('c',[1,9])-&gt;whereNotBetween('d',[2,4])-&gt;orderBy('id','desc')-&gt;skip(10)-&gt;take(2)-&gt;select(['name','id'])-&gt;get()
-</code></p>
+<p>查询</p>
+
+<blockquote><blockquote><p>User::where(&lsquo;name&rsquo;,1)->where(&lsquo;id&rsquo;,&lsquo;>&rsquo;,1)->whereIn(&lsquo;type&rsquo;,[1,2,3])->whereNotIn(&lsquo;a&rsquo;,[1])->orWhere(&lsquo;b&rsquo;,1)->whereBetween(&lsquo;c&rsquo;,[1,9])->whereNotBetween(&rsquo;d&#8217;,[2,4])->orderBy(&lsquo;id&rsquo;,&lsquo;desc&rsquo;)->skip(10)->take(2)->select([&lsquo;name&rsquo;,&lsquo;id&rsquo;])->get()</p></blockquote></blockquote>
 ]]></content>
   </entry>
   
