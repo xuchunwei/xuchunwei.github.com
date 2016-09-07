@@ -351,7 +351,7 @@ sudo apt-get install unzip
 ```
 sudo vim /etc/crontab
 * */1 * * * root php /home/xuchunwei/test.php 每分钟运行test.php(注意test.php权
-限)
+限)   
 sudo /etc/init.d/cron restart
 
 >mysql的配置文件my.cnf /etc/mysql/my.cnf  
