@@ -18,9 +18,11 @@ keywords: yii
 >User::where('a',1)->lists('b')  
 >User::where('a',1)->where('b','like','%ss%')->groupBy('c')->count();  
 >User::where('a',1)->leftJoin('table as t',function($join){$join->on('t.id','=','user.id');})->leftJoin('tt as b','b.id','=','user.id')->get()->toArray()
+
 更新
 >User::where('a',1)->update(['bb'=>2]);  
 >User::find(1)->update(['bb'=>2]); // model 需加 $fillable
+
 删除
 >User::find(1)->delete();  
 >User::destroy(1);  
