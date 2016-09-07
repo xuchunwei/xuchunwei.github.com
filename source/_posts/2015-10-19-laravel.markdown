@@ -21,6 +21,9 @@ keywords: yii
 >User::where('a',1)->where('b','like','%ss%')->groupBy('c')->count();  
 >User::where('a',1)->leftJoin('table as t',function($join){$join->on('t.id','=','user.id');})->leftJoin('tt as b','b.id','=','user.id')->get()->toArray()
 
+添加
+>User::create(['name'=>'1','a'=>1]);
+
 更新
 >User::where('a',1)->update(['bb'=>2]);  
 >User::find(1)->update(['bb'=>2]); // model 需加 $fillable
