@@ -4,7 +4,7 @@
   <title><![CDATA[深海后花园]]></title>
   <link href="http://www.xuchunwei.com/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2016-09-07T14:50:58+08:00</updated>
+  <updated>2016-09-07T18:43:19+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -12,6 +12,41 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Git]]></title>
+    <link href="http://www.xuchunwei.com/blog/20151019/git/"/>
+    <updated>2015-10-19T18:22:26+08:00</updated>
+    <id>http://www.xuchunwei.com/blog/20151019/git</id>
+    <content type="html"><![CDATA[<p>不会git的程序员不是好工程师</p>
+
+<!--more-->
+
+
+<p>git add xx.txt  添加到暂存区里面去<br/>
+git commit -m &lsquo;xx&rsquo; 提交到仓库。<br/>
+git status  查看是否还有文件未来提交<br/>
+git diff xx.txt  查看文件修改的内容
+git log  查看历史记录  git log &ndash;pretty=oneline aa.php<br/>
+git reset &ndash;hard HEAD^  回退到上一个版本  git reset &ndash;hard HEAD^^ 回退到上上个版本<br/>
+git checkout &ndash; xx.txt  丢弃工作区的修改<br/>
+git clone git@123.123.123.123:/var/git/cpx  克隆分支<br/>
+git branch dev  创建新分支 dev<br/>
+git checkout dev 切换到新分支 dev<br/>
+git checkout -b dev 创建并切换分支  git checkout  –b dev origin/dev  创建远程分支dev到本地dev来<br/>
+git branch 查看当前分支(会列出所有分支，当前分支前会有星号)<br/>
+git merge dev  把dev上的内容合并到当前分支<br/>
+git branch -d dev 删除本地dev分支  -D 强制删除<br/>
+git push origin &ndash;delete dev  删除远程dev分支<br/>
+git remote update &ndash;prune  库里删除的分支在本地origin下做个同步<br/>
+git remote  查看远程库的信息 git remote -v 查看远程库的详细信息<br/>
+git branch -a 查看本地和远程分支<br/>
+git push origin master 当前分支内容到远程master分支上  git push 上传本地所有分支到远程对应分支上<br/>
+git branch &ndash;set-upstream dev origin/dev  设置本地dev与远程dev的关联<br/>
+git pull origin dev  远程分支dev与当前分支合并<br/>
+git config core.ignorecase false  设置git区分大小写</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Laravel随笔]]></title>
