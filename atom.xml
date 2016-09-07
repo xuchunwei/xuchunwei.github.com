@@ -4,7 +4,7 @@
   <title><![CDATA[深海后花园]]></title>
   <link href="http://www.xuchunwei.com/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2016-09-07T14:41:33+08:00</updated>
+  <updated>2016-09-07T14:50:58+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -32,6 +32,10 @@ User::where(&lsquo;a&rsquo;,1)->first() <br/>
 User::where(&lsquo;a&rsquo;,1)->lists(&lsquo;b&rsquo;)<br/>
 User::where(&lsquo;a&rsquo;,1)->where(&lsquo;b&rsquo;,&lsquo;like&rsquo;,&lsquo;%ss%&rsquo;)->groupBy(&lsquo;c&rsquo;)->count();<br/>
 User::where(&lsquo;a&rsquo;,1)->leftJoin(&lsquo;table as t&rsquo;,function($join){$join->on(&rsquo;t.id&#8217;,&lsquo;=&rsquo;,&lsquo;user.id&rsquo;);})->leftJoin(&lsquo;tt as b&rsquo;,&lsquo;b.id&rsquo;,&lsquo;=&rsquo;,&lsquo;user.id&rsquo;)->get()->toArray()</p></blockquote>
+
+<p>添加</p>
+
+<blockquote><p>User::create([&lsquo;name&rsquo;=>&lsquo;1&rsquo;,&lsquo;a&rsquo;=>1]);</p></blockquote>
 
 <p>更新</p>
 

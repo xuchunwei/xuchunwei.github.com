@@ -108,6 +108,10 @@ User::where(&lsquo;a&rsquo;,1)->lists(&lsquo;b&rsquo;)<br/>
 User::where(&lsquo;a&rsquo;,1)->where(&lsquo;b&rsquo;,&lsquo;like&rsquo;,&lsquo;%ss%&rsquo;)->groupBy(&lsquo;c&rsquo;)->count();<br/>
 User::where(&lsquo;a&rsquo;,1)->leftJoin(&lsquo;table as t&rsquo;,function($join){$join->on(&rsquo;t.id&#8217;,&lsquo;=&rsquo;,&lsquo;user.id&rsquo;);})->leftJoin(&lsquo;tt as b&rsquo;,&lsquo;b.id&rsquo;,&lsquo;=&rsquo;,&lsquo;user.id&rsquo;)->get()->toArray()</p></blockquote>
 
+<p>添加</p>
+
+<blockquote><p>User::create([&lsquo;name&rsquo;=>&lsquo;1&rsquo;,&lsquo;a&rsquo;=>1]);</p></blockquote>
+
 <p>更新</p>
 
 <blockquote><p>User::where(&lsquo;a&rsquo;,1)->update([&lsquo;bb&rsquo;=>2]);<br/>
