@@ -226,6 +226,9 @@ chgrp dba /home/u1 改变/home/u1目录为dba所有 -R 递归处理，将指定�
 du -sh /var 显示var的大小<br/>
 du -sh * 显示当前所有文件夹的大小</p>
 
+<p>df[disk free] 显示磁盘的相关信息
+-h 以可读性较高的方式来显示硬盘剩余信息。-i 显示inode(索引)信息。</p>
+
 <p>pwd[print working directory] 显示工作目录</p>
 
 <p>id 显示用户的ID，以及所属群组的ID</p>
@@ -375,9 +378,6 @@ groupadd -g 888 gname  创建编号为888的gname组</p>
 
 <p>ln 链接
 -s 创建软链接。ln -s aaa bbb 不加s 创建硬链接，创软链接源文件和目标文件不在同目录，源文件需要是绝对路径</p>
-
-<p>df[disk free] 显示磁盘的相关信息<br/>
--h 以可读性较高的方式来显示硬盘剩余信息。-i 显示inode(索引)信息。-</p>
 
 <p>tail -f filename 监视filename的尾部内容(默认10行) -n 20 最后20行，-n +20 前20行</p>
 
