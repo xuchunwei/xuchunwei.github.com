@@ -4,7 +4,7 @@
   <title><![CDATA[深海后花园]]></title>
   <link href="http://www.xuchunwei.com/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2016-09-07T09:28:10+08:00</updated>
+  <updated>2016-09-07T09:32:22+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -851,6 +851,13 @@ shutdown -h now 将系统关机。-k 只是送出信息给所有用户，但不�
 </span><span class='line'>sudo apt-get install unzip</span></code></pre></td></tr></table></div></figure>
 
 
+<blockquote><p>sudo vim /etc/crontab
+* */1 * * * root php /home/xuchunwei/test.php 每分钟运行test.php(注意test.php权
+限)
+sudo /etc/init.d/cron restart</p></blockquote>
+
+<p>&#8220;`</p>
+
 <blockquote><p>mysql的配置文件my.cnf /etc/mysql/my.cnf<br/>
 apache2的配置文件apache2.conf /etc/apache2/apache2.conf<br/>
 php的配置文件php.ini /etc/php5/apache2/php.ini<br/>
@@ -860,11 +867,7 @@ vsftpd的配置文件vsftpd.conf /etc/vsftpd.conf</p>
 mysql的启动和停止命令 /etc/init.d/mysql start|restart|stop<br/>
 vsftpd的配置文件 /etc/init.d/vsftpd start|restart|stop</p>
 
-<p>mysql数据库文件存在/var/lib/mysql<br/>
-&#8220;`
-sudo vim /etc/crontab
-* */1 * * * root php /home/xuchunwei/test.php 每分钟运行test.php(注意test.php权限)
-sudo /etc/init.d/cron restart</p></blockquote>
+<p>mysql数据库文件存在/var/lib/mysql</p></blockquote>
 
 <h2>shell快捷键</h2>
 
