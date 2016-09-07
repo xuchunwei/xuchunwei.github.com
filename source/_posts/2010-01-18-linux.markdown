@@ -359,6 +359,7 @@ sudo apt-get install unzip
 >vsftpd的配置文件 /etc/init.d/vsftpd start|restart|stop  
 
 >mysql数据库文件存在/var/lib/mysql  
+
 ```
 crontab
 >sudo vim /etc/crontab
