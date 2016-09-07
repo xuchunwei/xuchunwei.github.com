@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | 深海后花园]]></title>
   <link href="http://www.xuchunwei.com/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2016-09-07T09:32:22+08:00</updated>
+  <updated>2016-09-07T09:34:35+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -724,11 +724,9 @@ sudo apt-get install unzip
 sudo vim /etc/crontab
 * */1 * * * root php /home/xuchunwei/test.php 每分钟运行test.php(注意test.php权
 限)
-sudo /etc/init.d/cron restart</p></blockquote>
+sudo /etc/init.d/cron restart</p>
 
-<p>&#8220;`</p>
-
-<blockquote><p>mysql的配置文件my.cnf /etc/mysql/my.cnf<br/>
+<p>mysql的配置文件my.cnf /etc/mysql/my.cnf<br/>
 apache2的配置文件apache2.conf /etc/apache2/apache2.conf<br/>
 php的配置文件php.ini /etc/php5/apache2/php.ini<br/>
 vsftpd的配置文件vsftpd.conf /etc/vsftpd.conf</p>
