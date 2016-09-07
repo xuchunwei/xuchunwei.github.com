@@ -100,13 +100,26 @@ var _hmt = _hmt || [];
 
 <p>查询</p>
 
-<blockquote><p>User::where(&lsquo;name&rsquo;,1)->where(&lsquo;id&rsquo;,&lsquo;>&rsquo;,1)->whereIn(&lsquo;type&rsquo;,[1,2,3])->whereNotIn(&lsquo;a&rsquo;,[1])->orWhere(&lsquo;b&rsquo;,1)->whereBetween(&lsquo;c&rsquo;,[1,9])->whereNotBetween(&rsquo;d&#8217;,[2,4])->orderBy(&lsquo;id&rsquo;,&lsquo;desc&rsquo;)->skip(10)->take(2)->select([&lsquo;name&rsquo;,&lsquo;id&rsquo;])->get() // limit 10,2
-User::find(1)  // id = 1
-User::find(1)->name
-User::where(&lsquo;a&rsquo;,1)->first()
-User::where(&lsquo;a&rsquo;,1)->lists(&lsquo;b&rsquo;)
-User::where(&lsquo;a&rsquo;,1)->where(&lsquo;b&rsquo;,&lsquo;like&rsquo;,&lsquo;%ss%&rsquo;)->groupBy(&lsquo;c&rsquo;)->count();
-User::where(&lsquo;a&rsquo;,1)->leftJoin(&lsquo;table as t&rsquo;,function($join))</p></blockquote>
+<blockquote><p>User::where(&lsquo;name&rsquo;,1)->where(&lsquo;id&rsquo;,&lsquo;>&rsquo;,1)->whereIn(&lsquo;type&rsquo;,[1,2,3])->whereNotIn(&lsquo;a&rsquo;,[1])->orWhere(&lsquo;b&rsquo;,1)->whereBetween(&lsquo;c&rsquo;,[1,9])->whereNotBetween(&rsquo;d&#8217;,[2,4])->orderBy(&lsquo;id&rsquo;,&lsquo;desc&rsquo;)->skip(10)->take(2)->select([&lsquo;name&rsquo;,&lsquo;id&rsquo;])->get() // limit 10,2 <br/>
+User::find(1)  // id = 1 <br/>
+User::find(1)->name <br/>
+User::where(&lsquo;a&rsquo;,1)->first() <br/>
+User::where(&lsquo;a&rsquo;,1)->lists(&lsquo;b&rsquo;)<br/>
+User::where(&lsquo;a&rsquo;,1)->where(&lsquo;b&rsquo;,&lsquo;like&rsquo;,&lsquo;%ss%&rsquo;)->groupBy(&lsquo;c&rsquo;)->count();<br/>
+User::where(&lsquo;a&rsquo;,1)->leftJoin(&lsquo;table as t&rsquo;,function($join){$join->on(&rsquo;t.id&#8217;,&lsquo;=&rsquo;,&lsquo;user.id&rsquo;);})->leftJoin(&lsquo;tt as b&rsquo;,&lsquo;b.id&rsquo;,&lsquo;=&rsquo;,&lsquo;user.id&rsquo;)->get()->toArray()</p></blockquote>
+
+<p>更新</p>
+
+<blockquote><p>User::where(&lsquo;a&rsquo;,1)->update([&lsquo;bb&rsquo;=>2]);<br/>
+User::find(1)->update([&lsquo;bb&rsquo;=>2]); // model 需加 $fillable</p></blockquote>
+
+<p>删除</p>
+
+<blockquote><p>User::find(1)->delete();<br/>
+User::destroy(1);<br/>
+User::destroy([1,2,3]);<br/>
+User::destroy(1,2,3);  //  根椐主键删除<br/>
+User::where(&lsquo;a&rsquo;,1)->delete();</p></blockquote>
 </div>
 
 
