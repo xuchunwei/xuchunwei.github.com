@@ -4,7 +4,7 @@
   <title><![CDATA[深海后花园]]></title>
   <link href="http://www.xuchunwei.com/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2016-09-08T17:21:47+08:00</updated>
+  <updated>2016-09-08T17:23:23+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -28,7 +28,7 @@ git commit -m &lsquo;xx&rsquo; 提交到仓库。<br/>
 git status  查看是否还有文件未来提交<br/>
 git diff xx.txt  查看文件修改的内容
 git log  查看历史记录  git log &ndash;pretty=oneline aa.php<br/>
-git reset - -hard HEAD^  回退到上一个版本  git reset &ndash;hard HEAD^^ 回退到上上个版本<br/>
+git reset &ndash;hard HEAD^  回退到上一个版本  git reset &ndash;hard HEAD^^ 回退到上上个版本<br/>
 git checkout &ndash; xx.txt  丢弃工作区的修改<br/>
 git clone git@123.123.123.123:/var/git/cpx  克隆分支<br/>
 git branch dev  创建新分支 dev<br/>
