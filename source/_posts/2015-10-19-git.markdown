@@ -14,9 +14,9 @@ git add xx.txt  添加到暂存区里面去
 git commit -m 'xx' 提交到仓库。  
 git status  查看是否还有文件未来提交  
 git diff xx.txt  查看文件修改的内容 
-git log  查看历史记录  git log --pretty=oneline aa.php  
-git reset --hard HEAD^  回退到上一个版本  git reset --hard HEAD^^ 回退到上上个版本  
-git checkout -- xx.txt  丢弃工作区的修改  
+git log  查看历史记录  git log - -pretty=oneline aa.php  
+git reset - -hard HEAD^  回退到上一个版本  git reset - -hard HEAD^^ 回退到上上个版本  
+git checkout - - xx.txt  丢弃工作区的修改  
 git clone git@123.123.123.123:/var/git/cpx  克隆分支  
 git branch dev  创建新分支 dev  
 git checkout dev 切换到新分支 dev  
@@ -24,11 +24,11 @@ git checkout -b dev 创建并切换分支  git checkout  –b dev origin/dev  �
 git branch 查看当前分支(会列出所有分支，当前分支前会有星号)  
 git merge dev  把dev上的内容合并到当前分支  
 git branch -d dev 删除本地dev分支  -D 强制删除  
-git push origin --delete dev  删除远程dev分支  
-git remote update --prune  库里删除的分支在本地origin下做个同步  
+git push origin - -delete dev  删除远程dev分支  
+git remote update - -prune  库里删除的分支在本地origin下做个同步  
 git remote  查看远程库的信息 git remote -v 查看远程库的详细信息  
 git branch -a 查看本地和远程分支  
 git push origin master 当前分支内容到远程master分支上  git push 上传本地所有分支到远程对应分支上  
-git branch --set-upstream dev origin/dev  设置本地dev与远程dev的关联  
+git branch - -set-upstream dev origin/dev  设置本地dev与远程dev的关联  
 git pull origin dev  远程分支dev与当前分支合并  
 git config core.ignorecase false  设置git区分大小写  
