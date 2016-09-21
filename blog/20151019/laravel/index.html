@@ -105,6 +105,7 @@ User::find(1)  // id = 1 <br/>
 User::find(1)->name <br/>
 User::where(&lsquo;a&rsquo;,1)->first() <br/>
 User::where(&lsquo;a&rsquo;,1)->lists(&lsquo;b&rsquo;)<br/>
+User::where(&lsquo;a&rsquo;,1)->pluck(&lsquo;b&rsquo;)<br/>
 User::where(&lsquo;a&rsquo;,1)->where(&lsquo;b&rsquo;,&lsquo;like&rsquo;,&lsquo;%ss%&rsquo;)->groupBy(&lsquo;c&rsquo;)->count();<br/>
 User::where(&lsquo;a&rsquo;,1)->leftJoin(&lsquo;table as t&rsquo;,function($join){$join->on(&rsquo;t.id&#8217;,&lsquo;=&rsquo;,&lsquo;user.id&rsquo;);})->leftJoin(&lsquo;tt as b&rsquo;,&lsquo;b.id&rsquo;,&lsquo;=&rsquo;,&lsquo;user.id&rsquo;)->get()->toArray()</p></blockquote>
 
