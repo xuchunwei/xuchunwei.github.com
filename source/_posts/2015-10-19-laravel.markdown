@@ -18,6 +18,7 @@ keywords: yii
 >User::find(1)->name   
 >User::where('a',1)->first()   
 >User::where('a',1)->lists('b')  
+>User::where('a',1)->pluck('b')  
 >User::where('a',1)->where('b','like','%ss%')->groupBy('c')->count();  
 >User::where('a',1)->leftJoin('table as t',function($join){$join->on('t.id','=','user.id');})->leftJoin('tt as b','b.id','=','user.id')->get()->toArray()
 
