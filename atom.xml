@@ -4,7 +4,7 @@
   <title><![CDATA[深海后花园]]></title>
   <link href="http://www.xuchunwei.com/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2016-10-11T21:01:34+08:00</updated>
+  <updated>2017-03-15T09:56:41+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -383,7 +383,7 @@ CDbTransaction 代表一个数据库事务</p></blockquote>
 <p>登陆mysql</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>mysql -u user -p password  # 如果是连接到另外的机器上，则需要加入一个参数-h机器IP</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mysql -u user -p  # 如果是连接到另外的机器上，则需要加入一个参数-h机器IP</span></code></pre></td></tr></table></div></figure>
 
 
 <p>增加新用户</p>
