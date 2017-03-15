@@ -21,7 +21,7 @@ net start mysql
 ```
 登陆mysql
 ```
-mysql -u user -p password  # 如果是连接到另外的机器上，则需要加入一个参数-h机器IP
+mysql -u user -p  # 如果是连接到另外的机器上，则需要加入一个参数-h机器IP
 ```
 增加新用户
 ```
