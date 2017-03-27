@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | 深海后花园]]></title>
   <link href="http://www.xuchunwei.com/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2017-03-15T09:56:41+08:00</updated>
+  <updated>2017-03-27T16:21:15+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -484,7 +484,8 @@ rm -f filename -f 强制删除文件不提醒。-r 删除目录</p>
 <p>cp[copy] 复制文件/文件夹<br/>
 cp -i 源文件 目标文件 -i 当目标文件存在时提示。-r 复制文件夹
 -p  连带文件属性复制，-d 若源文件是链接文件，则复制链接属性
--a 相当于 -rpd</p>
+-a 相当于 -rpd<br/>
+cp /a/. /b/  复制隐藏文件</p>
 
 <p>cd[change directory] 切换目录<br/>
 cd .. 返回上一层。cd 返回用户目录。cd - 进入上次目录</p>
