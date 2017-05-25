@@ -4,7 +4,7 @@
   <title><![CDATA[深海后花园]]></title>
   <link href="http://www.xuchunwei.com/atom.xml" rel="self"/>
   <link href="http://www.xuchunwei.com/"/>
-  <updated>2017-03-27T16:22:40+08:00</updated>
+  <updated>2017-05-25T10:38:18+08:00</updated>
   <id>http://www.xuchunwei.com/</id>
   <author>
     <name><![CDATA[徐春伟]]></name>
@@ -753,7 +753,9 @@ groupadd -g 888 gname  创建编号为888的gname组</p>
 
 <p>cat /etc/group 查看用户组</p>
 
-<p>cat /proc/version 查看系统信息</p>
+<p>cat /proc/version 查看内核系统信息</p>
+
+<p>cat /etc/debian_version 查看版本</p>
 
 <p>more /proc/cpuinfo 查看cpu信息</p>
 
