@@ -224,7 +224,9 @@ cat /etc/shadow 查看密码
 
 cat /etc/group 查看用户组
 
-cat /proc/version 查看系统信息
+cat /proc/version 查看内核系统信息
+
+cat /etc/debian_version 查看版本
 
 more /proc/cpuinfo 查看cpu信息
 
